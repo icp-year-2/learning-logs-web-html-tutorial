@@ -43,6 +43,8 @@
             display: flex;
             align-self: center;
             flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
             width: 100%;
             box-sizing: border-box;
         }

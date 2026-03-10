@@ -132,22 +132,26 @@
             gap: 15px;
         }
 
-   4. .usersession h3 — light font weight:
+   4. .usersession h3 — light font weight with border separator:
 
         .usersession h3 {
             font-weight: 100;
+            border-right: 1px solid var(--color-border-dark);
+            padding-right: 15px;
         }
 
    WHY: justify-content: space-between pushes the logo to the
         LEFT and user session to the RIGHT:
 
-        ┌──────────────────────────────────────┐
-        │  [📖 Learning Log]    [Username] [Logout] │
-        └──────────────────────────────────────┘
+        ┌──────────────────────────────────────────┐
+        │  [📖 Learning Log]    [Username | Logout] │
+        └──────────────────────────────────────────┘
             ↑ logo                  ↑ usersession
 
         position: sticky keeps the header visible when scrolling.
         gap: 15px adds space between the username and logout button.
+        border-right on the h3 creates a vertical separator line
+        between the username and the logout button (see wireframe).
    ============================================================ */
 
 
@@ -192,12 +196,15 @@
             color: var(--color-text-light);
         }
 
-   6. .content — expand to fill remaining space:
+   6. .content — expand to fill remaining space, centered:
 
         .content {
             flex: 1;
             padding: 5px;
             max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
    7. .footer — dark background, centered text:
@@ -211,7 +218,11 @@
 
    WHY: flex: 1 on .content is the KEY to this layout.
         It tells the content area to GROW and fill all available
-        space. This automatically pushes the footer to the bottom:
+        space. This automatically pushes the footer to the bottom.
+
+        display: flex + justify-content: center + align-items: center
+        centers the content both horizontally and vertically
+        (see wireframe — "Main Section" is centered in the box).
 
         ┌──────────────────┐
         │  header           │  ← fixed height

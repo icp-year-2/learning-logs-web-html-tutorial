@@ -48,11 +48,18 @@
             display: flex;
             align-self: center;
             flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
             width: 100%;
             box-sizing: border-box;
         }
 
-      WHY: box-sizing: border-box prevents horizontal scrollbars.
+      WHY: justify-content: flex-start and align-items: stretch RESET
+           the centering from main.css. In main.css, .content centers
+           its children (for the "Main Section" text). Here, we want
+           content to start from the top and stretch to full width.
+
+           box-sizing: border-box prevents horizontal scrollbars.
            Without it, width: 100% + padding = MORE than 100%
            (the CSS Box Model trap — see reference/css-properties.html Section 2).
 
