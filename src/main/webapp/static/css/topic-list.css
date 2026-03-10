@@ -46,12 +46,12 @@
             padding: 10px;
             max-width: 100%;
             display: flex;
-            align-self: center;
             flex-direction: column;
             justify-content: flex-start;
             align-items: stretch;
-            width: 100%;
             box-sizing: border-box;
+            border: 2px solid var(--color-border-dark);
+            margin: 5px;
         }
 
       WHY: justify-content: flex-start and align-items: stretch RESET
@@ -130,6 +130,8 @@
 
         .topicItem .topic {
             text-decoration: none;
+            color: var(--color-text-dark);
+            font-weight: 500;
             padding: 5px 0px 0px 0px;
             flex: 1;
             overflow: hidden;

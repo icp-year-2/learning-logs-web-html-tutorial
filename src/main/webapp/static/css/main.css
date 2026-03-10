@@ -196,7 +196,7 @@
             color: var(--color-text-light);
         }
 
-   6. .content — expand to fill remaining space, centered:
+   6. .content — expand to fill remaining space, centered with border:
 
         .content {
             flex: 1;
@@ -205,6 +205,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border: 2px solid var(--color-border-dark);
+            margin: 5px;
         }
 
    7. .footer — dark background, centered text:
@@ -221,8 +223,10 @@
         space. This automatically pushes the footer to the bottom.
 
         display: flex + justify-content: center + align-items: center
-        centers the content both horizontally and vertically
-        (see wireframe — "Main Section" is centered in the box).
+        centers the content both horizontally and vertically.
+
+        border + margin creates the visible content box you see
+        in the wireframe (see wireframes/main-layout.png).
 
         ┌──────────────────┐
         │  header           │  ← fixed height

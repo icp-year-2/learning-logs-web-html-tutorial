@@ -32,7 +32,7 @@
 /* ============================================================
    TODO 16: Style the Form Layout (+15 XP)
    ============================================================
-   Add these rule blocks:
+   Add these FIVE rule blocks:
 
    1. .content — override base content for centered form layout:
 
@@ -41,18 +41,18 @@
             padding: 10px;
             max-width: 100%;
             display: flex;
-            align-self: center;
             flex-direction: column;
             justify-content: flex-start;
             align-items: stretch;
-            width: 100%;
             box-sizing: border-box;
+            border: 2px solid var(--color-border-dark);
+            margin: 5px;
         }
 
    2. .topicContainer — bordered form area:
 
         .topicContainer {
-            border: 1px solid var(--color-border-light);
+            border: 2px solid var(--color-border-dark);
             margin: 15px auto;
             padding: 12px 45px;
             display: flex;
@@ -61,34 +61,31 @@
             min-height: 50%;
         }
 
-   3. .topicItem — flex row for label + input:
+   3. .topicItem — flex row for label + input, vertically centered:
 
         .topicItem {
             display: flex;
             gap: 10px;
             margin: 10px 0;
             padding: 5px;
+            align-items: center;
         }
 
-   4. .topicItem label — padding to align with input:
-
-        .topicItem label {
-            padding: 15px 0px 0px 0px;
-        }
-
-   5. .topicItem input — large text field that fills space:
+   4. .topicItem input — large text field that fills space:
 
         .topicItem input {
             font-size: large;
             padding: 5px;
             flex: 1;
+            border: 2px solid var(--color-border-dark);
         }
 
       WHY: flex: 1 on the input makes it grow to fill all
            remaining space after the label. The label stays
-           fixed width, the input stretches.
+           fixed width, the input stretches. align-items: center
+           on the parent vertically centers the label with the input.
 
-   6. .submit — center the save button:
+   5. .submit — center the save button:
 
         .submit {
             text-align: center;
