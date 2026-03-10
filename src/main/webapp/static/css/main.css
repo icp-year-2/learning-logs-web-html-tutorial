@@ -1,0 +1,271 @@
+/*
+ * ╔══════════════════════════════════════════════════════╗
+ * ║        QUEST: Style the Learning Logs Layout         ║
+ * ║                                                      ║
+ * ║   Complete TODOs 5-9 below to earn 150 XP!           ║
+ * ╚══════════════════════════════════════════════════════╝
+ *
+ * This stylesheet controls the main layout of Learning Logs.
+ * You'll use CSS Flexbox to create a vertical page layout:
+ *
+ *   ┌──────────────────────────────────────┐
+ *   │  .header   (flex: row, space-between)│  ← sticky top
+ *   ├──────────────────────────────────────┤
+ *   │  .navbar   (dark background)         │
+ *   ├──────────────────────────────────────┤
+ *   │                                      │
+ *   │  .content  (flex: 1 = fills space)   │  ← grows to fill
+ *   │                                      │
+ *   ├──────────────────────────────────────┤
+ *   │  .footer   (dark background)         │  ← pushed to bottom
+ *   └──────────────────────────────────────┘
+ *
+ * Wireframe: See wireframes/main-layout.png
+ */
+
+
+/* ============================================================
+   TODO 5: Define CSS Variables and Universal Reset (+25 XP)
+   ============================================================
+   Add TWO rule blocks:
+
+   1. :root — define these CSS variables (custom properties):
+
+        :root {
+            --color-bg-header: #f4f4f4;
+            --color-border-light: #ddd;
+            --color-border-dark: #000;
+            --color-navbar-bg: #222;
+            --color-footer-bg: #111;
+            --color-text-dark: #333;
+            --color-text-light: #fff;
+            --color-button-border: #333;
+            --color-button-hover-bg: #333;
+            --color-button-delete: rgba(255, 0, 0);
+        }
+
+   2. * (universal selector) — reset ALL elements:
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+   WHY: CSS variables let you define colors ONCE and reuse them
+        everywhere with var(--color-name). If you change a color
+        in :root, it updates everywhere automatically.
+
+        The * reset removes default browser margins/padding so
+        every element starts from a clean slate.
+
+   🏆 Badge: Stylist — earned when TODOs 5-8 are complete!
+   ============================================================ */
+
+
+/* ============================================================
+   TODO 6: Style the Page Container (+25 XP)
+   ============================================================
+   Style the body and .page container:
+
+     body {
+         height: 100vh;
+         display: flex;
+         flex-direction: column;
+     }
+
+     .page {
+         display: flex;
+         flex-direction: column;
+         height: 100vh;
+     }
+
+   WHY: flex-direction: column stacks children vertically
+        (header → navbar → content → footer).
+        height: 100vh means "100% of the viewport height" —
+        this ensures the page fills the entire browser window.
+
+   Flexbox direction visualized:
+
+     flex-direction: row (default)    flex-direction: column
+     ┌─────┬─────┬─────┐             ┌─────────────────┐
+     │  1  │  2  │  3  │             │        1        │
+     └─────┴─────┴─────┘             ├─────────────────┤
+                                     │        2        │
+                                     ├─────────────────┤
+                                     │         3       │
+                                     └─────────────────┘
+   ============================================================ */
+
+
+/* ============================================================
+   TODO 7: Style the Header, Logo, and User Session (+35 XP)
+   ============================================================
+   Add FOUR rule blocks:
+
+   1. .header — flex row layout with items at each end:
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2px 40px;
+            background-color: var(--color-bg-header);
+            border-bottom: 1px solid var(--color-border-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+   2. .logo h3 — make the app name sit beside the image:
+
+        .logo h3 {
+            display: inline-block;
+            font-weight: 100;
+        }
+
+   3. .usersession — flex row with gap between items:
+
+        .usersession {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+   4. .usersession h3 — light font weight:
+
+        .usersession h3 {
+            font-weight: 100;
+        }
+
+   WHY: justify-content: space-between pushes the logo to the
+        LEFT and user session to the RIGHT:
+
+        ┌──────────────────────────────────────┐
+        │  [📖 Learning Log]    [Username] [Logout] │
+        └──────────────────────────────────────┘
+            ↑ logo                  ↑ usersession
+
+        position: sticky keeps the header visible when scrolling.
+        gap: 15px adds space between the username and logout button.
+   ============================================================ */
+
+
+/* ============================================================
+   TODO 8: Style the Navbar, Content, and Footer (+45 XP)
+   ============================================================
+   Add SEVEN rule blocks:
+
+   1. .navbar — dark background:
+
+        .navbar {
+            background-color: var(--color-navbar-bg);
+        }
+
+   2. .navbar ul — flex row layout, spread items:
+
+        .navbar ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 40px;
+            list-style: none;
+        }
+
+   3. .navbar a — white text, no underline:
+
+        .navbar a {
+            text-decoration: none;
+            color: var(--color-text-light);
+            font-weight: 500;
+        }
+
+   4. .navbar a:hover — subtle fade effect:
+
+        .navbar a:hover {
+            opacity: 0.7;
+        }
+
+   5. .navbar p — white text for page title:
+
+        .navbar p {
+            color: var(--color-text-light);
+        }
+
+   6. .content — expand to fill remaining space:
+
+        .content {
+            flex: 1;
+            padding: 5px;
+            max-width: 100%;
+        }
+
+   7. .footer — dark background, centered text:
+
+        .footer {
+            background-color: var(--color-footer-bg);
+            color: var(--color-text-light);
+            text-align: center;
+            padding: 5px;
+        }
+
+   WHY: flex: 1 on .content is the KEY to this layout.
+        It tells the content area to GROW and fill all available
+        space. This automatically pushes the footer to the bottom:
+
+        ┌──────────────────┐
+        │  header           │  ← fixed height
+        │  navbar           │  ← fixed height
+        │                   │
+        │  content (flex:1) │  ← GROWS to fill
+        │                   │
+        │  footer           │  ← fixed height, pushed to bottom
+        └──────────────────┘
+
+        list-style: none removes bullet points from the <ul>.
+   ============================================================ */
+
+
+/* ============================================================
+   TODO 9: Style the Logout Button + Responsive Design (+20 XP)
+   ============================================================
+   Add THREE rule blocks:
+
+   1. .logout — style the anchor tag as a button:
+
+        .logout {
+            text-decoration: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: 1px solid var(--color-button-border);
+            color: var(--color-text-dark);
+        }
+
+   2. .logout:hover — dark background on hover:
+
+        .logout:hover {
+            background-color: var(--color-button-hover-bg);
+            color: var(--color-text-light);
+        }
+
+   3. @media query — hide app name on small screens:
+
+        @media (max-width: 700px) {
+            .logo h3 {
+                display: none;
+            }
+        }
+
+   WHY: The .logout styles turn a plain <a> tag into a button
+        with a border and rounded corners — hover adds a dark fill.
+
+        The @media query is a RESPONSIVE DESIGN rule. When the
+        browser width is 700px or less (mobile/tablet), the
+        "Learning Log" text hides to save space. The logo image
+        stays visible.
+
+        Try it: drag your browser window narrower and watch
+        "Learning Log" disappear!
+
+   🏆 Badge: Responsive — earned when this TODO is complete!
+   ============================================================ */

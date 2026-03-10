@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Properties Reference — Week 3</title>
+    <style>
+      /* ── Theme ────────────────────────────────────── */
+      :root {
+        --bg: #111;
+        --bg-card: #1a1a1a;
+        --bg-code: #0d0d0d;
+        --border: #333;
+        --text: #e0e0e0;
+        --text-muted: #888;
+        --accent: #fff;
+        --highlight: #444;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        padding: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      /* ── Typography ────────────────────────────────── */
+      h1 {
+        color: var(--accent);
+        font-size: 1.8rem;
+        border-bottom: 2px solid var(--border);
+        padding-bottom: 10px;
+        margin-bottom: 8px;
+      }
+
+      h1 span {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        font-weight: 100;
+      }
+
+      h2 {
+        color: var(--accent);
+        font-size: 1.3rem;
+        margin-top: 40px;
+        margin-bottom: 16px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      h2 span {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-weight: 100;
+      }
+
+      h3 {
+        color: var(--text);
+        font-size: 1rem;
+        margin-top: 24px;
+        margin-bottom: 8px;
+      }
+
+      p {
+        margin-bottom: 12px;
+        color: var(--text-muted);
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      /* ── Navigation ────────────────────────────────── */
+      .toc {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 16px 24px;
+        margin: 20px 0 30px;
+      }
+
+      .toc p {
+        color: var(--text);
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .toc ol {
+        padding-left: 20px;
+      }
+
+      .toc li {
+        margin-bottom: 4px;
+      }
+
+      .toc a {
+        color: var(--text-muted);
+        text-decoration: none;
+      }
+
+      .toc a:hover {
+        color: var(--accent);
+      }
+
+      /* ── Cards ─────────────────────────────────────── */
+      .card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 16px;
+      }
+
+      .card h3 {
+        margin-top: 0;
+        color: var(--accent);
+      }
+
+      /* ── Code Blocks ───────────────────────────────── */
+      code {
+        background-color: var(--bg-code);
+        color: var(--accent);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 0.9em;
+      }
+
+      pre {
+        background-color: var(--bg-code);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 14px;
+        overflow-x: auto;
+        margin: 10px 0 16px;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 0.85em;
+        line-height: 1.5;
+        color: var(--text);
+      }
+
+      /* ── Demo Boxes ────────────────────────────────── */
+      .demo {
+        border: 1px dashed var(--border);
+        border-radius: 6px;
+        padding: 16px;
+        margin: 10px 0 16px;
+        background-color: var(--bg);
+      }
+
+      .demo-label {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* ── Utility ───────────────────────────────────── */
+      .box {
+        background-color: var(--highlight);
+        color: var(--accent);
+        padding: 8px 16px;
+        border: 1px solid var(--border);
+        text-align: center;
+        font-size: 0.85rem;
+      }
+
+      .box-small {
+        background-color: var(--highlight);
+        color: var(--accent);
+        padding: 6px 12px;
+        border: 1px solid var(--border);
+        text-align: center;
+        font-size: 0.8rem;
+      }
+
+      .note {
+        background-color: var(--bg-code);
+        border-left: 3px solid var(--text-muted);
+        padding: 10px 14px;
+        margin: 12px 0;
+        font-size: 0.9em;
+        color: var(--text-muted);
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 40px 0;
+      }
+
+      .footer-text {
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>CSS Properties Reference <span>Week 3 — Lecture</span></h1>
+    <p>A visual guide to every CSS property covered in the Week 3 lecture. Open this file in your browser and use it as a quick reference while working on your tutorial and workshop.</p>
+
+    <nav class="toc">
+      <p>Contents</p>
+      <ol>
+        <li><a href="#selectors">CSS Selectors</a></li>
+        <li><a href="#box-model">Box Model</a></li>
+        <li><a href="#display">Display Property</a></li>
+        <li><a href="#flexbox">Flexbox Layout</a></li>
+        <li><a href="#positioning">Positioning</a></li>
+        <li><a href="#typography">Typography & Text</a></li>
+        <li><a href="#colors-bg">Colors & Backgrounds</a></li>
+        <li><a href="#borders">Borders & Border Radius</a></li>
+        <li><a href="#sizing">Sizing & Spacing</a></li>
+        <li><a href="#variables">CSS Variables</a></li>
+        <li><a href="#responsive">Responsive Design (@media)</a></li>
+        <li><a href="#misc">Miscellaneous</a></li>
+      </ol>
+    </nav>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="selectors">1. CSS Selectors <span>How to target HTML elements</span></h2>
+
+    <div class="card">
+      <h3>Tag / Element Selector</h3>
+      <p>Targets ALL elements of that type.</p>
+      <pre>p {
+    color: #333;
+}
+
+/* Targets every &lt;p&gt; element on the page */</pre>
+    </div>
+
+    <div class="card">
+      <h3>Class Selector <code>.className</code></h3>
+      <p>Targets elements with a specific class attribute. Most commonly used.</p>
+      <pre>.header {
+    background-color: #f4f4f4;
+}
+
+/* Targets: &lt;header class="header"&gt; */</pre>
+    </div>
+
+    <div class="card">
+      <h3>ID Selector <code>#idName</code></h3>
+      <p>Targets ONE specific element. IDs must be unique per page.</p>
+      <pre>#main-title {
+    font-size: 2rem;
+}
+
+/* Targets: &lt;h1 id="main-title"&gt; */</pre>
+    </div>
+
+    <div class="card">
+      <h3>Universal Selector <code>*</code></h3>
+      <p>Targets EVERY element. Used for resets.</p>
+      <pre>* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}</pre>
+    </div>
+
+    <div class="card">
+      <h3>Pseudo-class Selector <code>:hover</code></h3>
+      <p>Targets an element in a specific state (hover, focus, first-child, etc.).</p>
+      <pre>.logout:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Applied ONLY when the mouse is over .logout */</pre>
+      <div class="demo">
+        <div class="demo-label">Live Demo — hover the button</div>
+        <a href="#" style="text-decoration:none; padding:6px 14px; border-radius:6px; border:1px solid #555; color:#e0e0e0; transition: all 0.2s;"
+           onmouseover="this.style.backgroundColor='#555'; this.style.color='#fff'"
+           onmouseout="this.style.backgroundColor='transparent'; this.style.color='#e0e0e0'">
+          Hover Me
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Descendant Selector <code>A B</code></h3>
+      <p>Targets B elements that are inside A (any depth).</p>
+      <pre>.navbar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Targets all &lt;a&gt; tags anywhere inside .navbar */</pre>
+    </div>
+
+    <div class="card">
+      <h3>Child Selector <code>A > B</code></h3>
+      <p>Targets B elements that are direct children of A only.</p>
+      <pre>.navbar > ul {
+    list-style: none;
+}
+
+/* Targets &lt;ul&gt; that is a DIRECT child of .navbar */</pre>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="box-model">2. Box Model <span>Every element is a box</span></h2>
+
+    <p>Every HTML element is a rectangular box with four layers:</p>
+
+    <div class="demo">
+      <div class="demo-label">Box Model Visualization</div>
+      <div style="background-color:#333; padding:20px; border:3px solid #888; text-align:center; max-width:400px; margin:0 auto;">
+        <div style="color:#888; font-size:0.75rem; margin-bottom:4px;">margin (outer spacing)</div>
+        <div style="background-color:#444; padding:16px; border:2px dashed #666;">
+          <div style="color:#888; font-size:0.75rem; margin-bottom:4px;">border</div>
+          <div style="background-color:#555; padding:16px;">
+            <div style="color:#888; font-size:0.75rem; margin-bottom:4px;">padding (inner spacing)</div>
+            <div style="background-color:#222; padding:12px; color:#fff; border-radius:4px;">
+              Content
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>margin</code></h3>
+      <p>Space OUTSIDE the element (pushes other elements away).</p>
+      <pre>/* All sides */
+margin: 10px;
+
+/* Top/Bottom, Left/Right */
+margin: 10px 20px;
+
+/* Top, Right, Bottom, Left (clockwise) */
+margin: 10px 20px 10px 20px;
+
+/* Individual sides */
+margin-top: 10px;
+margin-bottom: 20px;</pre>
+    </div>
+
+    <div class="card">
+      <h3><code>padding</code></h3>
+      <p>Space INSIDE the element (between border and content).</p>
+      <pre>/* All sides */
+padding: 10px;
+
+/* Top/Bottom, Left/Right */
+padding: 5px 40px;
+
+/* Individual sides */
+padding-bottom: 10px;</pre>
+      <div class="demo">
+        <div class="demo-label">Padding Comparison</div>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+          <div style="background:#333; border:1px solid #555; padding:5px; color:#e0e0e0; font-size:0.8rem;">padding: 5px</div>
+          <div style="background:#333; border:1px solid #555; padding:20px; color:#e0e0e0; font-size:0.8rem;">padding: 20px</div>
+          <div style="background:#333; border:1px solid #555; padding:5px 40px; color:#e0e0e0; font-size:0.8rem;">padding: 5px 40px</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>box-sizing</code></h3>
+      <p>Controls how width/height is calculated.</p>
+      <pre>/* Default: width = content only (padding + border add extra) */
+box-sizing: content-box;
+
+/* Recommended: width includes padding + border */
+box-sizing: border-box;</pre>
+      <div class="note">Using <code>box-sizing: border-box</code> makes sizing predictable. A 200px-wide box stays 200px even with padding.</div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="display">3. Display Property <span>How elements behave</span></h2>
+
+    <div class="card">
+      <h3><code>display</code></h3>
+      <p>Controls how an element is rendered in the layout.</p>
+      <pre>display: block;        /* Full width, stacks vertically (div, p, h1) */
+display: inline;       /* Flows with text, no width/height (span, a) */
+display: inline-block; /* Inline but respects width/height */
+display: flex;         /* Flexbox container */
+display: grid;         /* Grid container */
+display: none;         /* Hides element completely */</pre>
+      <div class="demo">
+        <div class="demo-label">display: block vs inline vs inline-block</div>
+        <div style="margin-bottom:8px;">
+          <span style="background:#333; border:1px solid #555; padding:4px 8px; display:inline; color:#e0e0e0; font-size:0.8rem;">inline</span>
+          <span style="background:#333; border:1px solid #555; padding:4px 8px; display:inline; color:#e0e0e0; font-size:0.8rem;">inline</span>
+          <span style="background:#333; border:1px solid #555; padding:4px 8px; display:inline; color:#e0e0e0; font-size:0.8rem;">inline</span>
+          <span style="color:#888; font-size:0.75rem;"> — flows with text</span>
+        </div>
+        <div style="margin-bottom:8px;">
+          <div style="background:#333; border:1px solid #555; padding:4px 8px; display:block; color:#e0e0e0; font-size:0.8rem; margin-bottom:2px;">block — takes full width</div>
+          <div style="background:#333; border:1px solid #555; padding:4px 8px; display:block; color:#e0e0e0; font-size:0.8rem;">block — takes full width</div>
+        </div>
+        <div>
+          <span style="background:#333; border:1px solid #555; padding:4px 8px; display:inline-block; width:120px; color:#e0e0e0; font-size:0.8rem;">inline-block</span>
+          <span style="background:#333; border:1px solid #555; padding:4px 8px; display:inline-block; width:120px; color:#e0e0e0; font-size:0.8rem;">inline-block</span>
+          <span style="color:#888; font-size:0.75rem;"> — inline but with width</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="flexbox">4. Flexbox Layout <span>One-dimensional layout system</span></h2>
+
+    <p>Flexbox arranges items in a single row or column. Enable it with <code>display: flex</code> on the container.</p>
+
+    <div class="card">
+      <h3><code>display: flex</code></h3>
+      <p>Turns a container into a flex container. All direct children become flex items.</p>
+      <pre>.header {
+    display: flex;
+}</pre>
+      <div class="demo">
+        <div class="demo-label">Without flex (block elements stack)</div>
+        <div style="margin-bottom:12px;">
+          <div class="box-small" style="margin-bottom:2px;">Item 1</div>
+          <div class="box-small" style="margin-bottom:2px;">Item 2</div>
+          <div class="box-small">Item 3</div>
+        </div>
+        <div class="demo-label">With display: flex (items flow in a row)</div>
+        <div style="display:flex; gap:4px;">
+          <div class="box-small">Item 1</div>
+          <div class="box-small">Item 2</div>
+          <div class="box-small">Item 3</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>flex-direction</code></h3>
+      <p>Controls the direction items are placed. Default is <code>row</code>.</p>
+      <pre>flex-direction: row;            /* Left to right (default) */
+flex-direction: row-reverse;    /* Right to left */
+flex-direction: column;         /* Top to bottom */
+flex-direction: column-reverse; /* Bottom to top */</pre>
+      <div class="demo">
+        <div style="display:flex; gap:20px; flex-wrap:wrap;">
+          <div>
+            <div class="demo-label">row (default)</div>
+            <div style="display:flex; gap:4px;">
+              <div class="box-small">1</div>
+              <div class="box-small">2</div>
+              <div class="box-small">3</div>
+            </div>
+          </div>
+          <div>
+            <div class="demo-label">row-reverse</div>
+            <div style="display:flex; flex-direction:row-reverse; gap:4px;">
+              <div class="box-small">1</div>
+              <div class="box-small">2</div>
+              <div class="box-small">3</div>
+            </div>
+          </div>
+          <div>
+            <div class="demo-label">column</div>
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div class="box-small">1</div>
+              <div class="box-small">2</div>
+              <div class="box-small">3</div>
+            </div>
+          </div>
+          <div>
+            <div class="demo-label">column-reverse</div>
+            <div style="display:flex; flex-direction:column-reverse; gap:4px;">
+              <div class="box-small">1</div>
+              <div class="box-small">2</div>
+              <div class="box-small">3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>justify-content</code></h3>
+      <p>Aligns items along the <strong>main axis</strong> (horizontal for row, vertical for column).</p>
+      <pre>justify-content: flex-start;     /* Pack items to the start (default) */
+justify-content: flex-end;       /* Pack items to the end */
+justify-content: center;         /* Center items */
+justify-content: space-between;  /* Even space, first/last at edges */
+justify-content: space-around;   /* Even space around each item */</pre>
+      <div class="demo">
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div>
+            <div class="demo-label">flex-start (default)</div>
+            <div style="display:flex; justify-content:flex-start; gap:4px; border:1px dashed #333; padding:6px;">
+              <div class="box-small">1</div>
+              <div class="box-small">2</div>
+              <div class="box-small">3</div>
+            </div>
+          </div>
+          <div>
+            <div class="demo-label">flex-end</div>
+            <div style="display:flex; justify-content:flex-end; gap:4px; border:1px dashed #333; padding:6px;">
+              <div class="box-small">1</div>
+              <div class="box-small">2</div>
+              <div class="box-small">3</div>
+            </div>
+          </div>
+          <div>
+            <div class="demo-label">center</div>
+            <div style="display:flex; justify-content:center; gap:4px; border:1px dashed #333; padding:6px;">
+              <div class="box-small">1</div>
+              <div class="box-small">2</div>
+              <div class="box-small">3</div>
+            </div>
+          </div>
+          <div>
+            <div class="demo-label">space-between</div>
+            <div style="display:flex; justify-content:space-between; border:1px dashed #333; padding:6px;">
+              <div class="box-small">1</div>
+              <div class="box-small">2</div>
+              <div class="box-small">3</div>
+            </div>
+          </div>
+          <div>
+            <div class="demo-label">space-around</div>
+            <div style="display:flex; justify-content:space-around; border:1px dashed #333; padding:6px;">
+              <div class="box-small">1</div>
+              <div class="box-small">2</div>
+              <div class="box-small">3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>align-items</code></h3>
+      <p>Aligns items along the <strong>cross axis</strong> (vertical for row, horizontal for column).</p>
+      <pre>align-items: stretch;    /* Fill the container height (default) */
+align-items: flex-start; /* Align to the top */
+align-items: flex-end;   /* Align to the bottom */
+align-items: center;     /* Center vertically */
+align-items: baseline;   /* Align by text baseline */</pre>
+      <div class="demo">
+        <div style="display:flex; gap:20px; flex-wrap:wrap;">
+          <div>
+            <div class="demo-label">flex-start</div>
+            <div style="display:flex; align-items:flex-start; gap:4px; height:80px; border:1px dashed #333; padding:6px;">
+              <div class="box-small">A</div>
+              <div class="box-small" style="padding:12px 12px;">B</div>
+              <div class="box-small">C</div>
+            </div>
+          </div>
+          <div>
+            <div class="demo-label">center</div>
+            <div style="display:flex; align-items:center; gap:4px; height:80px; border:1px dashed #333; padding:6px;">
+              <div class="box-small">A</div>
+              <div class="box-small" style="padding:12px 12px;">B</div>
+              <div class="box-small">C</div>
+            </div>
+          </div>
+          <div>
+            <div class="demo-label">flex-end</div>
+            <div style="display:flex; align-items:flex-end; gap:4px; height:80px; border:1px dashed #333; padding:6px;">
+              <div class="box-small">A</div>
+              <div class="box-small" style="padding:12px 12px;">B</div>
+              <div class="box-small">C</div>
+            </div>
+          </div>
+          <div>
+            <div class="demo-label">stretch</div>
+            <div style="display:flex; align-items:stretch; gap:4px; height:80px; border:1px dashed #333; padding:6px;">
+              <div class="box-small">A</div>
+              <div class="box-small">B</div>
+              <div class="box-small">C</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>flex-wrap</code></h3>
+      <p>Controls whether flex items wrap to the next line.</p>
+      <pre>flex-wrap: nowrap;  /* All items on one line (default) */
+flex-wrap: wrap;    /* Items wrap to next line if needed */</pre>
+      <div class="demo">
+        <div class="demo-label">flex-wrap: wrap (resize browser to see wrapping)</div>
+        <div style="display:flex; flex-wrap:wrap; gap:4px; border:1px dashed #333; padding:6px;">
+          <div class="box-small" style="min-width:120px;">Item 1</div>
+          <div class="box-small" style="min-width:120px;">Item 2</div>
+          <div class="box-small" style="min-width:120px;">Item 3</div>
+          <div class="box-small" style="min-width:120px;">Item 4</div>
+          <div class="box-small" style="min-width:120px;">Item 5</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>flex</code> (on items)</h3>
+      <p>Controls how much a flex item grows to fill available space.</p>
+      <pre>.content {
+    flex: 1; /* Grow to fill ALL remaining space */
+}</pre>
+      <div class="demo">
+        <div class="demo-label">Header, Content (flex:1), Footer — content fills remaining space</div>
+        <div style="display:flex; flex-direction:column; height:180px; border:1px dashed #333;">
+          <div style="background:#333; padding:6px 12px; color:#e0e0e0; font-size:0.8rem; border-bottom:1px solid #444;">Header (fixed)</div>
+          <div style="flex:1; padding:6px 12px; color:#888; font-size:0.8rem; display:flex; align-items:center; justify-content:center;">Content (flex: 1) — fills remaining space</div>
+          <div style="background:#222; padding:6px 12px; color:#e0e0e0; font-size:0.8rem; border-top:1px solid #444;">Footer (fixed)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>gap</code></h3>
+      <p>Space between flex items (cleaner than using margins).</p>
+      <pre>.usersession {
+    display: flex;
+    gap: 15px;
+}</pre>
+      <div class="demo">
+        <div style="display:flex; gap:20px; flex-wrap:wrap;">
+          <div>
+            <div class="demo-label">gap: 0</div>
+            <div style="display:flex; gap:0;">
+              <div class="box-small">A</div>
+              <div class="box-small">B</div>
+              <div class="box-small">C</div>
+            </div>
+          </div>
+          <div>
+            <div class="demo-label">gap: 8px</div>
+            <div style="display:flex; gap:8px;">
+              <div class="box-small">A</div>
+              <div class="box-small">B</div>
+              <div class="box-small">C</div>
+            </div>
+          </div>
+          <div>
+            <div class="demo-label">gap: 20px</div>
+            <div style="display:flex; gap:20px;">
+              <div class="box-small">A</div>
+              <div class="box-small">B</div>
+              <div class="box-small">C</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">Practice flexbox interactively: <a href="https://flexboxfroggy.com/" target="_blank">flexboxfroggy.com</a> | Reference: <a href="https://tympanus.net/codrops/css_reference/flexbox/" target="_blank">Codrops Flexbox Reference</a></div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="positioning">5. Positioning <span>Where elements are placed</span></h2>
+
+    <div class="card">
+      <h3><code>position</code></h3>
+      <p>Controls how an element is positioned in the document flow.</p>
+      <pre>position: static;   /* Default — normal flow */
+position: relative; /* Offset from normal position */
+position: absolute; /* Removed from flow, positioned relative to nearest positioned ancestor */
+position: fixed;    /* Removed from flow, positioned relative to viewport */
+position: sticky;   /* Normal flow until scroll threshold, then fixed */</pre>
+    </div>
+
+    <div class="card">
+      <h3><code>position: sticky</code> + <code>top</code> + <code>z-index</code></h3>
+      <p>Used for the header in Learning Logs — stays visible while scrolling.</p>
+      <pre>.header {
+    position: sticky;
+    top: 0;        /* Stick at the top of the viewport */
+    z-index: 1000; /* Stay above other elements */
+}</pre>
+      <div class="note"><code>z-index</code> controls stacking order. Higher number = closer to the viewer. Only works on positioned elements (not <code>static</code>).</div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="typography">6. Typography & Text <span>Controlling text appearance</span></h2>
+
+    <div class="card">
+      <h3><code>font-family</code></h3>
+      <p>Sets the typeface. Use fallback fonts separated by commas.</p>
+      <pre>font-family: Arial, sans-serif;</pre>
+    </div>
+
+    <div class="card">
+      <h3><code>font-size</code></h3>
+      <p>Sets text size.</p>
+      <pre>font-size: 16px;   /* Pixels — fixed size */
+font-size: 1rem;   /* Relative to root element */
+font-size: 1.2em;  /* Relative to parent element */</pre>
+      <div class="demo">
+        <div class="demo-label">Font size comparison</div>
+        <span style="font-size:12px; color:#e0e0e0;">12px</span>&nbsp;&nbsp;
+        <span style="font-size:16px; color:#e0e0e0;">16px</span>&nbsp;&nbsp;
+        <span style="font-size:20px; color:#e0e0e0;">20px</span>&nbsp;&nbsp;
+        <span style="font-size:24px; color:#e0e0e0;">24px</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>font-weight</code></h3>
+      <p>Controls text thickness.</p>
+      <pre>font-weight: 100;    /* Thin */
+font-weight: 400;    /* Normal (same as "normal") */
+font-weight: 500;    /* Medium */
+font-weight: 700;    /* Bold (same as "bold") */</pre>
+      <div class="demo">
+        <div class="demo-label">Font weight comparison</div>
+        <span style="font-weight:100; color:#e0e0e0; font-size:1.1em;">100 Thin</span>&nbsp;&nbsp;&nbsp;
+        <span style="font-weight:400; color:#e0e0e0; font-size:1.1em;">400 Normal</span>&nbsp;&nbsp;&nbsp;
+        <span style="font-weight:500; color:#e0e0e0; font-size:1.1em;">500 Medium</span>&nbsp;&nbsp;&nbsp;
+        <span style="font-weight:700; color:#e0e0e0; font-size:1.1em;">700 Bold</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>text-align</code></h3>
+      <p>Horizontal alignment of text within a block element.</p>
+      <pre>text-align: left;    /* Default */
+text-align: center;
+text-align: right;</pre>
+      <div class="demo">
+        <div style="border:1px dashed #333; padding:6px; margin-bottom:4px; text-align:left; color:#e0e0e0; font-size:0.85rem;">text-align: left</div>
+        <div style="border:1px dashed #333; padding:6px; margin-bottom:4px; text-align:center; color:#e0e0e0; font-size:0.85rem;">text-align: center</div>
+        <div style="border:1px dashed #333; padding:6px; text-align:right; color:#e0e0e0; font-size:0.85rem;">text-align: right</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>text-decoration</code></h3>
+      <p>Controls underlines, overlines, and strikethroughs.</p>
+      <pre>text-decoration: none;         /* Remove underline (used on links) */
+text-decoration: underline;
+text-decoration: line-through;</pre>
+      <div class="demo">
+        <div class="demo-label">text-decoration comparison</div>
+        <span style="text-decoration:none; color:#e0e0e0;">none</span>&nbsp;&nbsp;&nbsp;
+        <span style="text-decoration:underline; color:#e0e0e0;">underline</span>&nbsp;&nbsp;&nbsp;
+        <span style="text-decoration:line-through; color:#e0e0e0;">line-through</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>line-height</code></h3>
+      <p>Controls spacing between lines of text.</p>
+      <pre>line-height: 1.6; /* 1.6x the font size — good for readability */</pre>
+    </div>
+
+    <div class="card">
+      <h3><code>list-style</code></h3>
+      <p>Controls the bullet/number style on lists.</p>
+      <pre>.navbar ul {
+    list-style: none; /* Remove bullet points */
+}</pre>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="colors-bg">7. Colors & Backgrounds <span>Adding color to elements</span></h2>
+
+    <div class="card">
+      <h3><code>color</code></h3>
+      <p>Sets the text color.</p>
+      <pre>color: #333;                /* Hex — dark gray */
+color: #fff;                /* Hex — white */
+color: rgba(255, 0, 0);     /* RGB — red */</pre>
+    </div>
+
+    <div class="card">
+      <h3><code>background-color</code></h3>
+      <p>Sets the background color of an element.</p>
+      <pre>background-color: #f4f4f4;  /* Light gray */
+background-color: #222;     /* Dark gray */
+background-color: #111;     /* Near black */</pre>
+      <div class="demo">
+        <div class="demo-label">Common backgrounds in Learning Logs</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div style="background:#f4f4f4; color:#333; padding:8px 16px; font-size:0.8rem; border-radius:4px;">header #f4f4f4</div>
+          <div style="background:#222; color:#fff; padding:8px 16px; font-size:0.8rem; border-radius:4px;">navbar #222</div>
+          <div style="background:#111; color:#fff; padding:8px 16px; font-size:0.8rem; border-radius:4px;">footer #111</div>
+          <div style="background:#fff; color:#333; padding:8px 16px; font-size:0.8rem; border-radius:4px;">content #fff</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>opacity</code></h3>
+      <p>Controls transparency. <code>1</code> = fully visible, <code>0</code> = invisible.</p>
+      <pre>.navbar a:hover {
+    opacity: 0.7; /* 30% transparent on hover */
+}</pre>
+      <div class="demo">
+        <div class="demo-label">Opacity comparison</div>
+        <div style="display:flex; gap:8px;">
+          <div style="background:#fff; color:#111; padding:8px 16px; font-size:0.8rem; opacity:1;">1.0</div>
+          <div style="background:#fff; color:#111; padding:8px 16px; font-size:0.8rem; opacity:0.7;">0.7</div>
+          <div style="background:#fff; color:#111; padding:8px 16px; font-size:0.8rem; opacity:0.5;">0.5</div>
+          <div style="background:#fff; color:#111; padding:8px 16px; font-size:0.8rem; opacity:0.3;">0.3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="borders">8. Borders & Border Radius <span>Edges and curves</span></h2>
+
+    <div class="card">
+      <h3><code>border</code></h3>
+      <p>Shorthand for border-width, border-style, and border-color.</p>
+      <pre>border: 1px solid #ddd;   /* Thin light gray line */
+border: 1px solid #333;   /* Thin dark line */
+border-bottom: 1px solid #ddd; /* Bottom only */</pre>
+    </div>
+
+    <div class="card">
+      <h3><code>border-radius</code></h3>
+      <p>Rounds the corners of an element.</p>
+      <pre>border-radius: 6px;  /* Slightly rounded */
+border-radius: 50%;  /* Perfect circle (on square elements) */</pre>
+      <div class="demo">
+        <div class="demo-label">Border radius comparison</div>
+        <div style="display:flex; gap:12px; align-items:center;">
+          <div style="background:#333; border:1px solid #555; width:60px; height:40px; border-radius:0; display:flex; align-items:center; justify-content:center; font-size:0.75rem; color:#e0e0e0;">0px</div>
+          <div style="background:#333; border:1px solid #555; width:60px; height:40px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:0.75rem; color:#e0e0e0;">6px</div>
+          <div style="background:#333; border:1px solid #555; width:60px; height:40px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:0.75rem; color:#e0e0e0;">12px</div>
+          <div style="background:#333; border:1px solid #555; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; color:#e0e0e0;">50%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="sizing">9. Sizing & Spacing <span>Width, height, and overflow</span></h2>
+
+    <div class="card">
+      <h3><code>width</code> / <code>max-width</code> / <code>min-width</code></h3>
+      <pre>width: 100%;        /* Full width of parent */
+max-width: 100%;    /* Never wider than parent (prevents horizontal scroll) */
+min-width: 200px;   /* Never narrower than 200px */</pre>
+    </div>
+
+    <div class="card">
+      <h3><code>height</code> / <code>min-height</code></h3>
+      <pre>height: 100vh;    /* 100% of viewport height */
+min-height: 40px; /* At least 40px tall */</pre>
+      <div class="note"><code>vh</code> = viewport height. <code>100vh</code> means the full browser window height. This is how Learning Logs makes the page fill the screen.</div>
+    </div>
+
+    <div class="card">
+      <h3><code>overflow</code></h3>
+      <p>Controls what happens when content is larger than its container.</p>
+      <pre>overflow: visible; /* Content spills out (default) */
+overflow: hidden;  /* Content is clipped */
+overflow: scroll;  /* Always show scrollbars */
+overflow: auto;    /* Show scrollbars only when needed */</pre>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="variables">10. CSS Variables <span>Define once, use everywhere</span></h2>
+
+    <div class="card">
+      <h3><code>:root</code> + <code>var()</code></h3>
+      <p>Define variables in <code>:root</code> (the HTML element), use them anywhere with <code>var(--name)</code>.</p>
+      <pre>/* Define variables */
+:root {
+    --color-navbar-bg: #222;
+    --color-text-light: #fff;
+    --color-button-border: #333;
+}
+
+/* Use variables */
+.navbar {
+    background-color: var(--color-navbar-bg);
+    color: var(--color-text-light);
+}
+
+.logout {
+    border: 1px solid var(--color-button-border);
+}</pre>
+      <div class="note">Change a variable in <code>:root</code> and it updates everywhere automatically. No find-and-replace needed.</div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="responsive">11. Responsive Design <span>Adapting to screen sizes</span></h2>
+
+    <div class="card">
+      <h3><code>@media</code> queries</h3>
+      <p>Apply CSS rules only when certain conditions are met (usually screen width).</p>
+      <pre>/* Only applies when browser width is 700px or less */
+@media (max-width: 700px) {
+    .logo h3 {
+        display: none; /* Hide "Learning Log" text on mobile */
+    }
+}</pre>
+      <div class="demo">
+        <div class="demo-label">Resize your browser window to see this in action</div>
+        <div style="display:flex; align-items:center; gap:10px; background:#333; padding:8px 16px; border-radius:6px;">
+          <span style="font-size:1.2em;">&#128214;</span>
+          <span class="responsive-text" style="color:#e0e0e0; font-size:0.9rem;">Learning Log</span>
+          <span style="color:#888; font-size:0.8rem; margin-left:auto;">( &larr; this text hides below 700px )</span>
+        </div>
+        <style>
+          @media (max-width: 700px) {
+            .responsive-text { display: none; }
+          }
+        </style>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Common breakpoints</h3>
+      <pre>@media (max-width: 700px)  { /* Tablets and below */ }
+@media (max-width: 480px)  { /* Mobile phones */ }
+@media (min-width: 1024px) { /* Desktops and above */ }</pre>
+    </div>
+
+    <div class="card">
+      <h3>Viewport meta tag</h3>
+      <p>Required in HTML <code>&lt;head&gt;</code> for responsive design to work on mobile devices.</p>
+      <pre>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</pre>
+      <div class="note">Without this tag, mobile browsers zoom out and show the desktop version of the page.</div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="misc">12. Miscellaneous <span>Other useful properties</span></h2>
+
+    <div class="card">
+      <h3><code>cursor</code></h3>
+      <p>Changes the mouse cursor style when hovering.</p>
+      <pre>cursor: pointer;   /* Hand icon — indicates clickable */
+cursor: default;   /* Normal arrow */
+cursor: not-allowed; /* Circle with slash */</pre>
+      <div class="demo">
+        <div class="demo-label">Hover over each box</div>
+        <div style="display:flex; gap:8px;">
+          <div style="cursor:pointer; background:#333; border:1px solid #555; padding:8px 16px; color:#e0e0e0; font-size:0.8rem; border-radius:4px;">pointer</div>
+          <div style="cursor:default; background:#333; border:1px solid #555; padding:8px 16px; color:#e0e0e0; font-size:0.8rem; border-radius:4px;">default</div>
+          <div style="cursor:not-allowed; background:#333; border:1px solid #555; padding:8px 16px; color:#e0e0e0; font-size:0.8rem; border-radius:4px;">not-allowed</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>grid-template-columns</code></h3>
+      <p>CSS Grid — defines column layout (used in entry list page).</p>
+      <pre>.entry-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+}</pre>
+      <div class="demo">
+        <div class="demo-label">CSS Grid: 3 equal columns</div>
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:4px;">
+          <div class="box-small">Col 1</div>
+          <div class="box-small">Col 2</div>
+          <div class="box-small">Col 3</div>
+          <div class="box-small">Col 4</div>
+          <div class="box-small">Col 5</div>
+          <div class="box-small">Col 6</div>
+        </div>
+      </div>
+      <div class="note">CSS Grid is a two-dimensional layout (rows AND columns). Flexbox is one-dimensional (row OR column). You'll see Grid used in the workshop.</div>
+    </div>
+
+    <div class="card">
+      <h3><code>@import</code></h3>
+      <p>Import another CSS file into the current stylesheet.</p>
+      <pre>/* In topiclist.css — imports the main layout styles */
+@import url("main.css");</pre>
+      <div class="note">This is how the topic and entry pages reuse the main layout CSS without duplicating it.</div>
+    </div>
+
+    <hr />
+
+    <p class="footer-text">CSS Properties Reference — Week 3 Lecture<br/>Informatics College Pokhara — Java Programming By Sandesh Hamal</p>
+
+  </body>
+</html>

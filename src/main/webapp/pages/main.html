@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--
+    ╔══════════════════════════════════════════════════════╗
+    ║      QUEST: Build the Learning Logs Main Layout      ║
+    ║                                                      ║
+    ║   Complete TODOs 1-4 below to earn 150 XP!           ║
+    ╚══════════════════════════════════════════════════════╝
+
+    This is the main layout page for Learning Logs.
+    Every page in the app will share this structure:
+
+      ┌──────────────────────────────────────┐
+      │  HEADER  (logo + user session)       │
+      ├──────────────────────────────────────┤
+      │  NAVBAR  (back / title / action)     │
+      ├──────────────────────────────────────┤
+      │                                      │
+      │  CONTENT (changes per page)          │
+      │                                      │
+      ├──────────────────────────────────────┤
+      │  FOOTER  (copyright)                 │
+      └──────────────────────────────────────┘
+
+    Preview: Right-click this file → Open in → Browser
+    Wireframe: See wireframes/main-layout.png
+  -->
+
+  <!-- ============================================================
+       TODO 1: Write the <head> section (+20 XP)
+       ============================================================
+       Add these 4 elements inside the <head> tag:
+
+         1. <meta charset="UTF-8" />
+         2. <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+         3. <title>Learning Log</title>
+         4. <link rel="stylesheet" href="../static/css/main.css" />
+
+       WHY: The viewport meta tag makes the page responsive on mobile.
+            The CSS link connects your stylesheet — notice the relative
+            path goes UP one level (../) from pages/ to webapp/, then
+            DOWN into static/css/.
+
+       Path explained:
+         pages/main.html  ──(../)──>  webapp/  ──>  static/css/main.css
+
+       🏆 Badge: Scaffolder — earned when this TODO is complete!
+       ============================================================ -->
+  <head>
+  </head>
+
+  <body>
+    <!-- Main Page Container -->
+    <div class="page">
+
+      <!-- ============================================================
+           TODO 2: Build the Header (+40 XP)
+           ============================================================
+           Inside this <header>, create TWO divs side by side:
+
+           1. Logo div (class="logo"):
+              - An <a> tag linking to "#" with style="text-decoration: none"
+                - Inside the <a>: an <img> tag
+                  - src="../static/images/book.png"
+                  - alt="LL"
+              - An <h3> tag with text: Learning Log
+
+           2. User Session div (class="usersession"):
+              - An <h3> tag with text: Username
+              - An <a> tag with href="#", class="logout", text: Logout
+
+           The HTML structure looks like this:
+
+             <header class="header">
+               <div class="logo">
+                 <a href="#" style="text-decoration: none">
+                   <img src="../static/images/book.png" alt="LL" />
+                 </a>
+                 <h3>Learning Log</h3>
+               </div>
+               <div class="usersession">
+                 <h3>Username</h3>
+                 <a href="#" class="logout">Logout</a>
+               </div>
+             </header>
+
+           WHY: The header uses flexbox (styled in CSS) to push the logo
+                to the left and the user session to the right. This is a
+                common pattern — think of any website's top bar.
+
+           🏆 Badge: Builder — earned when TODO 2 and 3 are complete!
+           ============================================================ -->
+
+
+      <!-- ============================================================
+           TODO 3: Build the Navbar (+40 XP)
+           ============================================================
+           Create a <nav> with class="navbar" containing a <ul> with
+           THREE <li> items:
+
+           1. First <li>: an <a> tag with href="#" and text: < BACK
+           2. Second <li>: a <p> tag with text: Page Title
+           3. Third <li>: an <a> tag with href="#" and text: Action
+
+           The HTML structure looks like this:
+
+             <nav class="navbar">
+               <ul>
+                 <li><a href="#">< BACK</a></li>
+                 <li><p>Page Title</p></li>
+                 <li><a href="#">Action</a></li>
+               </ul>
+             </nav>
+
+           WHY: The navbar uses flexbox with space-between to spread
+                the three items evenly. The "< BACK" and "Action" are
+                navigation links, while "Page Title" shows which page
+                you're on. Each page will customize these labels.
+           ============================================================ -->
+
+
+      <!-- ============================================================
+           TODO 4: Build the Content Area and Footer (+50 XP)
+           ============================================================
+           Add TWO elements after the navbar:
+
+           1. Content area:
+              <main class="content">Main Contents Here</main>
+
+           2. Footer:
+              <footer class="footer">
+                <h3>&copy; Learning Logs</h3>
+              </footer>
+
+           WHY: The <main> element uses flex:1 in CSS, which makes it
+                expand to fill ALL remaining space between the navbar
+                and footer. This pushes the footer to the bottom of
+                the page — no matter how little content there is.
+
+                The &copy; is an HTML entity that renders as ©.
+
+           🏆 Badge: Architect — earned when all 4 TODOs are complete!
+           ============================================================ -->
+
+
+    </div>
+  </body>
+</html>

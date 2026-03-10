@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Elements Reference — Week 3</title>
+    <style>
+      /* ── Theme ────────────────────────────────────── */
+      :root {
+        --bg: #111;
+        --bg-card: #1a1a1a;
+        --bg-code: #0d0d0d;
+        --border: #333;
+        --text: #e0e0e0;
+        --text-muted: #888;
+        --accent: #fff;
+        --highlight: #444;
+        --tag-color: #9dbfff;
+        --attr-color: #c9a6ff;
+        --value-color: #a8d8a8;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        padding: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      /* ── Typography ────────────────────────────────── */
+      h1 {
+        color: var(--accent);
+        font-size: 1.8rem;
+        border-bottom: 2px solid var(--border);
+        padding-bottom: 10px;
+        margin-bottom: 8px;
+      }
+
+      h1 span {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        font-weight: 100;
+      }
+
+      h2 {
+        color: var(--accent);
+        font-size: 1.3rem;
+        margin-top: 40px;
+        margin-bottom: 16px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      h2 span {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-weight: 100;
+      }
+
+      h3 {
+        color: var(--text);
+        font-size: 1rem;
+        margin-top: 24px;
+        margin-bottom: 8px;
+      }
+
+      p {
+        margin-bottom: 12px;
+        color: var(--text-muted);
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      /* ── Navigation ────────────────────────────────── */
+      .toc {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 16px 24px;
+        margin: 20px 0 30px;
+      }
+
+      .toc p {
+        color: var(--text);
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .toc ol {
+        padding-left: 20px;
+      }
+
+      .toc li {
+        margin-bottom: 4px;
+      }
+
+      .toc a {
+        color: var(--text-muted);
+        text-decoration: none;
+      }
+
+      .toc a:hover {
+        color: var(--accent);
+      }
+
+      /* ── Cards ─────────────────────────────────────── */
+      .card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 16px;
+      }
+
+      .card h3 {
+        margin-top: 0;
+        color: var(--accent);
+      }
+
+      /* ── Code Blocks ───────────────────────────────── */
+      code {
+        background-color: var(--bg-code);
+        color: var(--accent);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 0.9em;
+      }
+
+      pre {
+        background-color: var(--bg-code);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 14px;
+        overflow-x: auto;
+        margin: 10px 0 16px;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 0.85em;
+        line-height: 1.5;
+        color: var(--text);
+      }
+
+      .tag { color: var(--tag-color); }
+      .attr { color: var(--attr-color); }
+      .val { color: var(--value-color); }
+
+      /* ── Demo Boxes ────────────────────────────────── */
+      .demo {
+        border: 1px dashed var(--border);
+        border-radius: 6px;
+        padding: 16px;
+        margin: 10px 0 16px;
+        background-color: var(--bg);
+      }
+
+      .demo-label {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* ── Note Box ──────────────────────────────────── */
+      .note {
+        background-color: var(--bg-code);
+        border-left: 3px solid var(--text-muted);
+        padding: 10px 14px;
+        margin: 12px 0;
+        font-size: 0.9em;
+        color: var(--text-muted);
+      }
+
+      /* ── Demo form styling ─────────────────────────── */
+      .demo input,
+      .demo textarea,
+      .demo select {
+        background-color: var(--bg-card);
+        color: var(--text);
+        border: 1px solid var(--border);
+        padding: 6px 10px;
+        border-radius: 4px;
+        font-family: Arial, sans-serif;
+        font-size: 0.85rem;
+      }
+
+      .demo input:focus,
+      .demo textarea:focus {
+        outline: 1px solid var(--text-muted);
+      }
+
+      .demo label {
+        color: var(--text);
+        font-size: 0.85rem;
+      }
+
+      .demo button,
+      .demo input[type="submit"] {
+        background-color: var(--highlight);
+        color: var(--accent);
+        border: 1px solid var(--border);
+        padding: 6px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.85rem;
+      }
+
+      .demo button:hover,
+      .demo input[type="submit"]:hover {
+        background-color: var(--border);
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 40px 0;
+      }
+
+      .footer-text {
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>HTML Elements Reference <span>Week 3 — Lecture</span></h1>
+    <p>A visual guide to every HTML element and attribute covered in the Week 3 lecture. Open this file in your browser and use it alongside <code>css-properties.html</code> while working on the tutorial and workshop.</p>
+
+    <nav class="toc">
+      <p>Contents</p>
+      <ol>
+        <li><a href="#document">Document Structure</a></li>
+        <li><a href="#head">Head Elements (Metadata)</a></li>
+        <li><a href="#semantic">Semantic Layout Elements</a></li>
+        <li><a href="#text">Text & Headings</a></li>
+        <li><a href="#links-images">Links & Images</a></li>
+        <li><a href="#lists">Lists</a></li>
+        <li><a href="#containers">Containers (div & span)</a></li>
+        <li><a href="#forms">Forms & Inputs</a></li>
+        <li><a href="#attributes">Common Attributes</a></li>
+        <li><a href="#entities">HTML Entities</a></li>
+        <li><a href="#complete">Complete Tag Reference</a></li>
+      </ol>
+    </nav>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="document">1. Document Structure <span>The skeleton of every HTML page</span></h2>
+
+    <div class="card">
+      <h3>Minimal HTML Page</h3>
+      <p>Every HTML page starts with this structure. The browser reads it top to bottom.</p>
+      <pre><span class="tag">&lt;!DOCTYPE html&gt;</span>              <span class="text-muted" style="color:#888;">Tells the browser: "This is HTML5"</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="val">"en"</span><span class="tag">&gt;</span>             <span style="color:#888;">Root element — language is English</span>
+  <span class="tag">&lt;head&gt;</span>                     <span style="color:#888;">Metadata (NOT visible on the page)</span>
+    ...
+  <span class="tag">&lt;/head&gt;</span>
+  <span class="tag">&lt;body&gt;</span>                     <span style="color:#888;">Visible content goes here</span>
+    ...
+  <span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></pre>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;!DOCTYPE html&gt;</code></h3>
+      <p>Not a tag — it's a declaration. Tells the browser to use modern HTML5 standards. Always the first line.</p>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;html lang="en"&gt;</code></h3>
+      <p>The root element that wraps everything. The <code>lang</code> attribute tells screen readers and search engines what language the page is in.</p>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;head&gt;</code> vs <code>&lt;body&gt;</code></h3>
+      <p>Two required children of <code>&lt;html&gt;</code>:</p>
+      <pre><span class="tag">&lt;head&gt;</span>   → Metadata: title, CSS links, meta tags (NOT visible)
+<span class="tag">&lt;body&gt;</span>   → Content: everything the user sees and interacts with</pre>
+      <div class="note">A common beginner mistake is putting <code>&lt;link&gt;</code> or <code>&lt;title&gt;</code> inside <code>&lt;body&gt;</code>. They belong in <code>&lt;head&gt;</code>.</div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="head">2. Head Elements <span>Metadata — not visible on the page</span></h2>
+
+    <div class="card">
+      <h3><code>&lt;meta charset="UTF-8"&gt;</code></h3>
+      <p>Sets the character encoding. UTF-8 supports all languages and special characters.</p>
+      <pre><span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span> <span class="tag">/&gt;</span></pre>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;meta name="viewport"&gt;</code></h3>
+      <p>Makes the page responsive on mobile devices. Without it, phones show a zoomed-out desktop view.</p>
+      <pre><span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="val">"viewport"</span> <span class="attr">content</span>=<span class="val">"width=device-width, initial-scale=1.0"</span> <span class="tag">/&gt;</span></pre>
+      <div class="note"><code>width=device-width</code> — page width matches the device screen.<br/><code>initial-scale=1.0</code> — no zoom on load. Required for <code>@media</code> queries to work.</div>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;title&gt;</code></h3>
+      <p>The text shown in the browser tab. Also used by search engines as the page title.</p>
+      <pre><span class="tag">&lt;title&gt;</span>Learning Log<span class="tag">&lt;/title&gt;</span></pre>
+      <div class="demo">
+        <div class="demo-label">Where it appears</div>
+        <div style="display:flex; align-items:center; gap:8px; background:#222; padding:6px 12px; border-radius:6px 6px 0 0; font-size:0.8rem;">
+          <span style="color:#fff;">Learning Log</span>
+          <span style="color:#555;">&#10005;</span>
+          <span style="color:#555; margin-left:8px;">+</span>
+        </div>
+        <div style="background:#333; height:20px; border-radius:0 0 6px 6px;"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;link&gt;</code></h3>
+      <p>Connects external resources — most commonly a CSS stylesheet.</p>
+      <pre><span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"../static/css/main.css"</span> <span class="tag">/&gt;</span></pre>
+      <div class="note"><code>rel="stylesheet"</code> — the relationship is a stylesheet.<br/><code>href</code> — the path to the CSS file. From <code>pages/main.html</code>, go UP one level (<code>../</code>) then into <code>static/css/</code>.</div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="semantic">3. Semantic Layout Elements <span>Tags that describe their purpose</span></h2>
+
+    <p>HTML5 introduced semantic elements that replace generic <code>&lt;div&gt;</code> tags. They make your code more readable and accessible.</p>
+
+    <div class="card">
+      <h3><code>&lt;header&gt;</code></h3>
+      <p>The page header — typically contains logo, site name, and navigation or user info.</p>
+      <pre><span class="tag">&lt;header</span> <span class="attr">class</span>=<span class="val">"header"</span><span class="tag">&gt;</span>
+  <span style="color:#888;">Logo, app name, username, logout button</span>
+<span class="tag">&lt;/header&gt;</span></pre>
+      <div class="demo">
+        <div class="demo-label">Live Example</div>
+        <header style="display:flex; justify-content:space-between; align-items:center; background:#2a2a2a; padding:6px 16px; border-radius:4px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:1.1em;">&#128214;</span>
+            <span style="color:#e0e0e0; font-size:0.9rem; font-weight:100;">Learning Log</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="color:#e0e0e0; font-size:0.85rem; font-weight:100;">Username</span>
+            <span style="border:1px solid #555; padding:3px 10px; border-radius:4px; color:#e0e0e0; font-size:0.8rem;">Logout</span>
+          </div>
+        </header>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;nav&gt;</code></h3>
+      <p>Navigation section — contains links for moving between pages or sections.</p>
+      <pre><span class="tag">&lt;nav</span> <span class="attr">class</span>=<span class="val">"navbar"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;ul&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"#"</span><span class="tag">&gt;</span>&lt; BACK<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="tag">&lt;p&gt;</span>Page Title<span class="tag">&lt;/p&gt;&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span><span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"#"</span><span class="tag">&gt;</span>Action<span class="tag">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="tag">&lt;/ul&gt;</span>
+<span class="tag">&lt;/nav&gt;</span></pre>
+      <div class="demo">
+        <div class="demo-label">Live Example</div>
+        <nav style="background:#222; border-radius:4px;">
+          <ul style="display:flex; justify-content:space-between; align-items:center; padding:5px 16px; list-style:none;">
+            <li><a href="#" style="text-decoration:none; color:#fff; font-size:0.85rem;">&lt; BACK</a></li>
+            <li><p style="color:#fff; font-size:0.85rem;">Page Title</p></li>
+            <li><a href="#" style="text-decoration:none; color:#fff; font-size:0.85rem;">Action</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;main&gt;</code></h3>
+      <p>The primary content area. There should only be ONE <code>&lt;main&gt;</code> per page. Content changes on each page while header/nav/footer stay the same.</p>
+      <pre><span class="tag">&lt;main</span> <span class="attr">class</span>=<span class="val">"content"</span><span class="tag">&gt;</span>
+  Main Contents Here
+<span class="tag">&lt;/main&gt;</span></pre>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;footer&gt;</code></h3>
+      <p>The page footer — typically contains copyright, credits, or additional links.</p>
+      <pre><span class="tag">&lt;footer</span> <span class="attr">class</span>=<span class="val">"footer"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;h3&gt;</span>&amp;copy; Learning Logs<span class="tag">&lt;/h3&gt;</span>
+<span class="tag">&lt;/footer&gt;</span></pre>
+      <div class="demo">
+        <div class="demo-label">Live Example</div>
+        <footer style="background:#111; padding:5px; border-radius:4px; text-align:center;">
+          <h3 style="color:#fff; font-size:0.9rem; font-weight:400;">&copy; Learning Logs</h3>
+        </footer>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Semantic vs Generic Comparison</h3>
+      <pre><span style="color:#888;">Old way (generic divs — works but meaningless):</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"header"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"nav"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"content"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"footer"</span><span class="tag">&gt;</span>...<span class="tag">&lt;/div&gt;</span>
+
+<span style="color:#888;">Semantic way (tags describe their role):</span>
+<span class="tag">&lt;header&gt;</span>...<span class="tag">&lt;/header&gt;</span>
+<span class="tag">&lt;nav&gt;</span>...<span class="tag">&lt;/nav&gt;</span>
+<span class="tag">&lt;main&gt;</span>...<span class="tag">&lt;/main&gt;</span>
+<span class="tag">&lt;footer&gt;</span>...<span class="tag">&lt;/footer&gt;</span></pre>
+      <div class="note">Screen readers, search engines, and other developers can understand your page structure from the tags alone — without reading any CSS.</div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="text">4. Text & Headings <span>Displaying text content</span></h2>
+
+    <div class="card">
+      <h3>Heading Tags <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code></h3>
+      <p>Six levels of headings. <code>&lt;h1&gt;</code> is the largest, <code>&lt;h6&gt;</code> is the smallest. Use them in order — don't skip levels.</p>
+      <pre><span class="tag">&lt;h1&gt;</span>Heading 1<span class="tag">&lt;/h1&gt;</span>   <span style="color:#888;">Main page title (use once per page)</span>
+<span class="tag">&lt;h2&gt;</span>Heading 2<span class="tag">&lt;/h2&gt;</span>   <span style="color:#888;">Section title</span>
+<span class="tag">&lt;h3&gt;</span>Heading 3<span class="tag">&lt;/h3&gt;</span>   <span style="color:#888;">Sub-section title (used in Learning Logs)</span></pre>
+      <div class="demo">
+        <div class="demo-label">Heading sizes</div>
+        <h1 style="color:#fff; font-size:1.8rem; margin-bottom:4px;">h1 — Main Title</h1>
+        <h2 style="color:#fff; font-size:1.4rem; margin-bottom:4px; border:none; margin-top:0;">h2 — Section</h2>
+        <h3 style="color:#fff; font-size:1.1rem; margin-bottom:4px; margin-top:0;">h3 — Sub-section</h3>
+        <h4 style="color:#ccc; font-size:0.95rem; margin-bottom:4px;">h4 — Detail</h4>
+        <h5 style="color:#aaa; font-size:0.85rem; margin-bottom:4px;">h5 — Minor</h5>
+        <h6 style="color:#888; font-size:0.75rem;">h6 — Smallest</h6>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;p&gt;</code> — Paragraph</h3>
+      <p>Block of text. Browsers add vertical spacing between paragraphs by default (removed by the <code>*</code> reset).</p>
+      <pre><span class="tag">&lt;p&gt;</span>Page Title<span class="tag">&lt;/p&gt;</span></pre>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="links-images">5. Links & Images <span>Navigation and media</span></h2>
+
+    <div class="card">
+      <h3><code>&lt;a&gt;</code> — Anchor (Link)</h3>
+      <p>Creates a clickable link. The <code>href</code> attribute specifies where the link goes.</p>
+      <pre><span style="color:#888;">Link to another page:</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"topiclist.html"</span><span class="tag">&gt;</span>View Topics<span class="tag">&lt;/a&gt;</span>
+
+<span style="color:#888;">Link placeholder (goes nowhere yet):</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"#"</span><span class="tag">&gt;</span>Logout<span class="tag">&lt;/a&gt;</span>
+
+<span style="color:#888;">Styled as a button with a class:</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"#"</span> <span class="attr">class</span>=<span class="val">"logout"</span><span class="tag">&gt;</span>Logout<span class="tag">&lt;/a&gt;</span>
+
+<span style="color:#888;">Removing the underline with inline style:</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"#"</span> <span class="attr">style</span>=<span class="val">"text-decoration: none"</span><span class="tag">&gt;</span>No underline<span class="tag">&lt;/a&gt;</span></pre>
+      <div class="demo">
+        <div class="demo-label">Link examples</div>
+        <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+          <a href="#" style="color:#9dbfff;">Default link</a>
+          <a href="#" style="color:#9dbfff; text-decoration:none;">No underline</a>
+          <a href="#" style="text-decoration:none; border:1px solid #555; padding:4px 12px; border-radius:4px; color:#e0e0e0; font-size:0.85rem;">Styled as button</a>
+        </div>
+      </div>
+      <div class="note"><code>href="#"</code> is a placeholder — the link stays on the current page. In Week 4, these will point to actual servlet URLs.</div>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;img&gt;</code> — Image</h3>
+      <p>Displays an image. Self-closing tag (no <code>&lt;/img&gt;</code>). Two required attributes:</p>
+      <pre><span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"../static/images/book.png"</span> <span class="attr">alt</span>=<span class="val">"LL"</span> <span class="tag">/&gt;</span></pre>
+      <div style="margin-top:8px;">
+        <p><code>src</code> — path to the image file</p>
+        <p><code>alt</code> — text shown if the image fails to load, also read by screen readers</p>
+      </div>
+      <div class="note"><code>&lt;img&gt;</code> is a <strong>self-closing tag</strong> — it ends with <code>/&gt;</code> instead of having a closing tag. Other self-closing tags: <code>&lt;meta /&gt;</code>, <code>&lt;link /&gt;</code>, <code>&lt;input /&gt;</code>, <code>&lt;br /&gt;</code>.</div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="lists">6. Lists <span>Ordered and unordered items</span></h2>
+
+    <div class="card">
+      <h3><code>&lt;ul&gt;</code> + <code>&lt;li&gt;</code> — Unordered List</h3>
+      <p>A list of items with bullet points (unless removed with <code>list-style: none</code>). Used in the navbar.</p>
+      <pre><span class="tag">&lt;ul&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Item 1<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Item 2<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Item 3<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span></pre>
+      <div class="demo">
+        <div style="display:flex; gap:30px;">
+          <div>
+            <div class="demo-label">Default (with bullets)</div>
+            <ul style="padding-left:20px; color:#e0e0e0; font-size:0.85rem;">
+              <li>Item 1</li>
+              <li>Item 2</li>
+              <li>Item 3</li>
+            </ul>
+          </div>
+          <div>
+            <div class="demo-label">list-style: none (navbar)</div>
+            <ul style="list-style:none; color:#e0e0e0; font-size:0.85rem;">
+              <li>Item 1</li>
+              <li>Item 2</li>
+              <li>Item 3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;ol&gt;</code> + <code>&lt;li&gt;</code> — Ordered List</h3>
+      <p>A numbered list. Same as <code>&lt;ul&gt;</code> but with numbers instead of bullets.</p>
+      <div class="demo">
+        <ol style="padding-left:20px; color:#e0e0e0; font-size:0.85rem;">
+          <li>First step</li>
+          <li>Second step</li>
+          <li>Third step</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="containers">7. Containers <span>Grouping elements together</span></h2>
+
+    <div class="card">
+      <h3><code>&lt;div&gt;</code> — Block Container</h3>
+      <p>A generic block-level container. Used to group elements for styling with CSS. Takes full width.</p>
+      <pre><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"logo"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"book.png"</span> <span class="attr">alt</span>=<span class="val">"LL"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;h3&gt;</span>Learning Log<span class="tag">&lt;/h3&gt;</span>
+<span class="tag">&lt;/div&gt;</span></pre>
+      <div class="note"><code>&lt;div&gt;</code> has no semantic meaning — it's just a box. Use semantic tags (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, etc.) when they fit. Use <code>&lt;div&gt;</code> only when no semantic tag applies.</div>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;span&gt;</code> — Inline Container</h3>
+      <p>An inline container for styling a piece of text within a block element. Does NOT start a new line.</p>
+      <pre><span class="tag">&lt;p&gt;</span>This is <span class="tag">&lt;span</span> <span class="attr">style</span>=<span class="val">"color: red;"</span><span class="tag">&gt;</span>important<span class="tag">&lt;/span&gt;</span> text.<span class="tag">&lt;/p&gt;</span></pre>
+      <div class="demo">
+        <p style="color:#e0e0e0; font-size:0.9rem;">This is <span style="color:#ff6666;">important</span> text.</p>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="forms">8. Forms & Inputs <span>Collecting user data</span></h2>
+
+    <p>Forms let users send data to the server. Used in the workshop (add topic, add entry) and Week 4 (connected to Servlets).</p>
+
+    <div class="card">
+      <h3><code>&lt;form&gt;</code></h3>
+      <p>Container for input fields. Two key attributes:</p>
+      <pre><span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="val">"/addtopic"</span> <span class="attr">method</span>=<span class="val">"post"</span><span class="tag">&gt;</span>
+  ...inputs go here...
+<span class="tag">&lt;/form&gt;</span></pre>
+      <div style="margin-top:8px;">
+        <p><code>action</code> — the URL to send the data to (where the form submits)</p>
+        <p><code>method</code> — how to send it: <code>get</code> (data in URL) or <code>post</code> (data in request body)</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;form method="get"&gt;</code> vs <code>&lt;form method="post"&gt;</code></h3>
+      <p>Browsers only support two form methods:</p>
+      <pre><span style="color:#888;">GET — data visible in URL (good for search)</span>
+<span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="val">"/search"</span> <span class="attr">method</span>=<span class="val">"get"</span><span class="tag">&gt;</span>
+  Result URL: /search?query=flexbox
+
+<span style="color:#888;">POST — data hidden in request body (good for creating/updating)</span>
+<span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="val">"/addtopic"</span> <span class="attr">method</span>=<span class="val">"post"</span><span class="tag">&gt;</span>
+  Data sent in background, not visible in URL</pre>
+      <div class="note">Use <code>GET</code> for reading data (search, filter). Use <code>POST</code> for writing data (create, update, delete).</div>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;label&gt;</code> + <code>&lt;input&gt;</code></h3>
+      <p>Labels describe input fields. The <code>for</code> attribute links a label to an input's <code>id</code>.</p>
+      <pre><span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"topicName"</span><span class="tag">&gt;</span>Topic Name:<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">id</span>=<span class="val">"topicName"</span> <span class="attr">name</span>=<span class="val">"name"</span> <span class="attr">placeholder</span>=<span class="val">"Enter topic name"</span> <span class="tag">/&gt;</span></pre>
+      <div class="demo">
+        <div class="demo-label">Live Example — click the label, cursor goes to the input</div>
+        <div style="display:flex; flex-direction:column; gap:4px; max-width:300px;">
+          <label for="demo-topic">Topic Name:</label>
+          <input type="text" id="demo-topic" name="name" placeholder="Enter topic name" />
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Input Types</h3>
+      <p>The <code>type</code> attribute changes how the input looks and what data it accepts.</p>
+      <pre><span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="tag">/&gt;</span>       <span style="color:#888;">Single-line text</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"password"</span> <span class="tag">/&gt;</span>   <span style="color:#888;">Hidden text (dots)</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"email"</span> <span class="tag">/&gt;</span>      <span style="color:#888;">Validates email format</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"number"</span> <span class="tag">/&gt;</span>     <span style="color:#888;">Numbers only</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"file"</span> <span class="tag">/&gt;</span>       <span style="color:#888;">File upload</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"hidden"</span> <span class="tag">/&gt;</span>     <span style="color:#888;">Not visible (sends data silently)</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"submit"</span> <span class="tag">/&gt;</span>     <span style="color:#888;">Submit button</span></pre>
+      <div class="demo">
+        <div class="demo-label">Input types</div>
+        <div style="display:flex; flex-direction:column; gap:8px; max-width:300px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <label style="min-width:80px;">text</label>
+            <input type="text" placeholder="Type here..." />
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <label style="min-width:80px;">password</label>
+            <input type="password" value="secret" />
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <label style="min-width:80px;">email</label>
+            <input type="email" placeholder="user@mail.com" />
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <label style="min-width:80px;">number</label>
+            <input type="number" value="42" />
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <label style="min-width:80px;">file</label>
+            <input type="file" />
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <label style="min-width:80px;">submit</label>
+            <input type="submit" value="Submit" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;textarea&gt;</code></h3>
+      <p>Multi-line text input. Unlike <code>&lt;input&gt;</code>, this has a closing tag.</p>
+      <pre><span class="tag">&lt;textarea</span> <span class="attr">name</span>=<span class="val">"description"</span> <span class="attr">rows</span>=<span class="val">"5"</span> <span class="attr">placeholder</span>=<span class="val">"Write your notes..."</span><span class="tag">&gt;&lt;/textarea&gt;</span></pre>
+      <div class="demo">
+        <div class="demo-label">Textarea — resizable</div>
+        <textarea name="demo" rows="3" placeholder="Write your notes..." style="width:100%; max-width:400px;"></textarea>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><code>&lt;button&gt;</code></h3>
+      <p>A clickable button. More flexible than <code>&lt;input type="submit"&gt;</code> — can contain HTML inside.</p>
+      <pre><span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="val">"submit"</span><span class="tag">&gt;</span>Save Topic<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="val">"button"</span><span class="tag">&gt;</span>Cancel<span class="tag">&lt;/button&gt;</span></pre>
+      <div class="demo">
+        <div style="display:flex; gap:8px;">
+          <button type="button">Save Topic</button>
+          <button type="button">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Client-side Validation Attributes</h3>
+      <p>HTML provides built-in validation — no JavaScript needed.</p>
+      <pre><span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">required</span> <span class="tag">/&gt;</span>           <span style="color:#888;">Cannot be empty</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"email"</span> <span class="attr">required</span> <span class="tag">/&gt;</span>          <span style="color:#888;">Must be valid email format</span>
+<span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"number"</span> <span class="attr">min</span>=<span class="val">"1"</span> <span class="attr">max</span>=<span class="val">"100"</span> <span class="tag">/&gt;</span>  <span style="color:#888;">Range constraint</span></pre>
+      <div class="demo">
+        <div class="demo-label">Try submitting with an empty required field</div>
+        <form onsubmit="return false;" style="display:flex; gap:8px; align-items:flex-end;">
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <label>Required field:</label>
+            <input type="text" required placeholder="Try submitting empty..." />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="note">The <code>required</code> attribute and <code>type</code> validation happen in the browser BEFORE the form is sent. The server should still validate too.</div>
+    </div>
+
+    <div class="card">
+      <h3>Complete Form Example</h3>
+      <p>A form for adding a topic — similar to what you'll build in the workshop.</p>
+      <pre><span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="val">"/addtopic"</span> <span class="attr">method</span>=<span class="val">"post"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"name"</span><span class="tag">&gt;</span>Topic Name:<span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">id</span>=<span class="val">"name"</span> <span class="attr">name</span>=<span class="val">"name"</span>
+         <span class="attr">placeholder</span>=<span class="val">"Enter topic"</span> <span class="attr">required</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="val">"submit"</span><span class="tag">&gt;</span>Save<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span></pre>
+      <div class="demo">
+        <div class="demo-label">Live Example</div>
+        <form onsubmit="return false;" style="display:flex; flex-direction:column; gap:8px; max-width:300px;">
+          <label for="demo-name">Topic Name:</label>
+          <input type="text" id="demo-name" name="name" placeholder="Enter topic" required />
+          <button type="submit" style="align-self:flex-start;">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="attributes">9. Common Attributes <span>Properties that go on tags</span></h2>
+
+    <div class="card">
+      <h3>Attribute Reference Table</h3>
+      <p>Attributes are added inside the opening tag: <code>&lt;tag attribute="value"&gt;</code></p>
+      <table style="width:100%; border-collapse:collapse; font-size:0.85rem; margin-top:10px;">
+        <thead>
+          <tr style="border-bottom:1px solid #333;">
+            <th style="text-align:left; padding:6px; color:#fff;">Attribute</th>
+            <th style="text-align:left; padding:6px; color:#fff;">Used On</th>
+            <th style="text-align:left; padding:6px; color:#fff;">Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>class</code></td>
+            <td style="padding:6px; color:#888;">Any element</td>
+            <td style="padding:6px; color:#888;">CSS selector target — can be reused on multiple elements</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>id</code></td>
+            <td style="padding:6px; color:#888;">Any element</td>
+            <td style="padding:6px; color:#888;">Unique identifier — only ONE per page</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>href</code></td>
+            <td style="padding:6px; color:#888;"><code>&lt;a&gt;</code>, <code>&lt;link&gt;</code></td>
+            <td style="padding:6px; color:#888;">URL or path to link to</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>src</code></td>
+            <td style="padding:6px; color:#888;"><code>&lt;img&gt;</code>, <code>&lt;script&gt;</code></td>
+            <td style="padding:6px; color:#888;">Path to the resource file</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>alt</code></td>
+            <td style="padding:6px; color:#888;"><code>&lt;img&gt;</code></td>
+            <td style="padding:6px; color:#888;">Alternative text if image fails or for screen readers</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>style</code></td>
+            <td style="padding:6px; color:#888;">Any element</td>
+            <td style="padding:6px; color:#888;">Inline CSS (prefer external stylesheets)</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>type</code></td>
+            <td style="padding:6px; color:#888;"><code>&lt;input&gt;</code>, <code>&lt;button&gt;</code></td>
+            <td style="padding:6px; color:#888;">Input type (text, password, email, submit, etc.)</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>name</code></td>
+            <td style="padding:6px; color:#888;"><code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code></td>
+            <td style="padding:6px; color:#888;">Key sent to server (e.g., name="topic" sends topic=value)</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>value</code></td>
+            <td style="padding:6px; color:#888;"><code>&lt;input&gt;</code>, <code>&lt;button&gt;</code></td>
+            <td style="padding:6px; color:#888;">Current/default value of the field</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>placeholder</code></td>
+            <td style="padding:6px; color:#888;"><code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code></td>
+            <td style="padding:6px; color:#888;">Ghost text shown when field is empty</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>required</code></td>
+            <td style="padding:6px; color:#888;"><code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code></td>
+            <td style="padding:6px; color:#888;">Form won't submit if this field is empty</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>for</code></td>
+            <td style="padding:6px; color:#888;"><code>&lt;label&gt;</code></td>
+            <td style="padding:6px; color:#888;">Links label to input by matching the input's <code>id</code></td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>action</code></td>
+            <td style="padding:6px; color:#888;"><code>&lt;form&gt;</code></td>
+            <td style="padding:6px; color:#888;">URL where form data is sent on submit</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>method</code></td>
+            <td style="padding:6px; color:#888;"><code>&lt;form&gt;</code></td>
+            <td style="padding:6px; color:#888;">HTTP method: <code>get</code> or <code>post</code></td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>rel</code></td>
+            <td style="padding:6px; color:#888;"><code>&lt;link&gt;</code></td>
+            <td style="padding:6px; color:#888;">Relationship type (<code>stylesheet</code>)</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>lang</code></td>
+            <td style="padding:6px; color:#888;"><code>&lt;html&gt;</code></td>
+            <td style="padding:6px; color:#888;">Page language (<code>en</code> for English)</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>charset</code></td>
+            <td style="padding:6px; color:#888;"><code>&lt;meta&gt;</code></td>
+            <td style="padding:6px; color:#888;">Character encoding (<code>UTF-8</code>)</td>
+          </tr>
+          <tr>
+            <td style="padding:6px;"><code>rows</code></td>
+            <td style="padding:6px; color:#888;"><code>&lt;textarea&gt;</code></td>
+            <td style="padding:6px; color:#888;">Number of visible text lines</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="entities">10. HTML Entities <span>Special characters</span></h2>
+
+    <div class="card">
+      <h3>Common Entities</h3>
+      <p>Some characters have special meaning in HTML. Use entities to display them as text.</p>
+      <table style="width:100%; border-collapse:collapse; font-size:0.85rem; margin-top:10px;">
+        <thead>
+          <tr style="border-bottom:1px solid #333;">
+            <th style="text-align:left; padding:6px; color:#fff;">Entity</th>
+            <th style="text-align:left; padding:6px; color:#fff;">Renders As</th>
+            <th style="text-align:left; padding:6px; color:#fff;">When to Use</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&amp;copy;</code></td>
+            <td style="padding:6px; font-size:1.1em;">&copy;</td>
+            <td style="padding:6px; color:#888;">Copyright symbol — used in footer</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&amp;lt;</code></td>
+            <td style="padding:6px; font-size:1.1em;">&lt;</td>
+            <td style="padding:6px; color:#888;">Less-than — when you need literal <code>&lt;</code> in text</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&amp;gt;</code></td>
+            <td style="padding:6px; font-size:1.1em;">&gt;</td>
+            <td style="padding:6px; color:#888;">Greater-than — when you need literal <code>&gt;</code> in text</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&amp;amp;</code></td>
+            <td style="padding:6px; font-size:1.1em;">&amp;</td>
+            <td style="padding:6px; color:#888;">Ampersand — when you need literal <code>&amp;</code> in text</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&amp;nbsp;</code></td>
+            <td style="padding:6px; color:#888;">(space)</td>
+            <td style="padding:6px; color:#888;">Non-breaking space — prevents line break</td>
+          </tr>
+          <tr>
+            <td style="padding:6px;"><code>&amp;quot;</code></td>
+            <td style="padding:6px; font-size:1.1em;">&quot;</td>
+            <td style="padding:6px; color:#888;">Quote mark inside an attribute value</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════ -->
+    <h2 id="complete">11. Complete Tag Reference <span>All 24 tags used in Learning Logs</span></h2>
+
+    <div class="card">
+      <table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
+        <thead>
+          <tr style="border-bottom:1px solid #333;">
+            <th style="text-align:left; padding:6px; color:#fff;">Tag</th>
+            <th style="text-align:left; padding:6px; color:#fff;">Type</th>
+            <th style="text-align:left; padding:6px; color:#fff;">Purpose</th>
+            <th style="text-align:left; padding:6px; color:#fff;">Used In</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;!DOCTYPE&gt;</code></td>
+            <td style="padding:6px; color:#888;">Declaration</td>
+            <td style="padding:6px; color:#888;">HTML5 mode</td>
+            <td style="padding:6px; color:#888;">All pages</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;html&gt;</code></td>
+            <td style="padding:6px; color:#888;">Root</td>
+            <td style="padding:6px; color:#888;">Root element</td>
+            <td style="padding:6px; color:#888;">All pages</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;head&gt;</code></td>
+            <td style="padding:6px; color:#888;">Metadata</td>
+            <td style="padding:6px; color:#888;">Page metadata container</td>
+            <td style="padding:6px; color:#888;">All pages</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;meta&gt;</code></td>
+            <td style="padding:6px; color:#888;">Metadata</td>
+            <td style="padding:6px; color:#888;">Charset, viewport</td>
+            <td style="padding:6px; color:#888;">All pages</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;title&gt;</code></td>
+            <td style="padding:6px; color:#888;">Metadata</td>
+            <td style="padding:6px; color:#888;">Browser tab text</td>
+            <td style="padding:6px; color:#888;">All pages</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;link&gt;</code></td>
+            <td style="padding:6px; color:#888;">Metadata</td>
+            <td style="padding:6px; color:#888;">CSS stylesheet link</td>
+            <td style="padding:6px; color:#888;">All pages</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;body&gt;</code></td>
+            <td style="padding:6px; color:#888;">Structure</td>
+            <td style="padding:6px; color:#888;">Visible content container</td>
+            <td style="padding:6px; color:#888;">All pages</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;header&gt;</code></td>
+            <td style="padding:6px; color:#888;">Semantic</td>
+            <td style="padding:6px; color:#888;">Page header</td>
+            <td style="padding:6px; color:#888;">main.html</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;nav&gt;</code></td>
+            <td style="padding:6px; color:#888;">Semantic</td>
+            <td style="padding:6px; color:#888;">Navigation bar</td>
+            <td style="padding:6px; color:#888;">main.html</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;main&gt;</code></td>
+            <td style="padding:6px; color:#888;">Semantic</td>
+            <td style="padding:6px; color:#888;">Primary content</td>
+            <td style="padding:6px; color:#888;">main.html</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;footer&gt;</code></td>
+            <td style="padding:6px; color:#888;">Semantic</td>
+            <td style="padding:6px; color:#888;">Page footer</td>
+            <td style="padding:6px; color:#888;">main.html</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;div&gt;</code></td>
+            <td style="padding:6px; color:#888;">Container</td>
+            <td style="padding:6px; color:#888;">Block container (generic)</td>
+            <td style="padding:6px; color:#888;">All pages</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;h2&gt;</code> / <code>&lt;h3&gt;</code></td>
+            <td style="padding:6px; color:#888;">Text</td>
+            <td style="padding:6px; color:#888;">Headings</td>
+            <td style="padding:6px; color:#888;">All pages</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;p&gt;</code></td>
+            <td style="padding:6px; color:#888;">Text</td>
+            <td style="padding:6px; color:#888;">Paragraph text</td>
+            <td style="padding:6px; color:#888;">navbar, entries</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;a&gt;</code></td>
+            <td style="padding:6px; color:#888;">Interactive</td>
+            <td style="padding:6px; color:#888;">Links and navigation</td>
+            <td style="padding:6px; color:#888;">All pages</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;img&gt;</code></td>
+            <td style="padding:6px; color:#888;">Media</td>
+            <td style="padding:6px; color:#888;">Logo, photos</td>
+            <td style="padding:6px; color:#888;">main, entries</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;ul&gt;</code></td>
+            <td style="padding:6px; color:#888;">List</td>
+            <td style="padding:6px; color:#888;">Unordered list container</td>
+            <td style="padding:6px; color:#888;">navbar</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;li&gt;</code></td>
+            <td style="padding:6px; color:#888;">List</td>
+            <td style="padding:6px; color:#888;">List item</td>
+            <td style="padding:6px; color:#888;">navbar</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;form&gt;</code></td>
+            <td style="padding:6px; color:#888;">Form</td>
+            <td style="padding:6px; color:#888;">Data input container</td>
+            <td style="padding:6px; color:#888;">add/edit pages</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;label&gt;</code></td>
+            <td style="padding:6px; color:#888;">Form</td>
+            <td style="padding:6px; color:#888;">Input label text</td>
+            <td style="padding:6px; color:#888;">add/edit pages</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;input&gt;</code></td>
+            <td style="padding:6px; color:#888;">Form</td>
+            <td style="padding:6px; color:#888;">Text, password, file, hidden, submit</td>
+            <td style="padding:6px; color:#888;">add/edit pages</td>
+          </tr>
+          <tr style="border-bottom:1px solid #222;">
+            <td style="padding:6px;"><code>&lt;textarea&gt;</code></td>
+            <td style="padding:6px; color:#888;">Form</td>
+            <td style="padding:6px; color:#888;">Multi-line text input</td>
+            <td style="padding:6px; color:#888;">add entry</td>
+          </tr>
+          <tr>
+            <td style="padding:6px;"><code>&lt;button&gt;</code></td>
+            <td style="padding:6px; color:#888;">Form</td>
+            <td style="padding:6px; color:#888;">Clickable button</td>
+            <td style="padding:6px; color:#888;">add/edit, delete</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr />
+
+    <p class="footer-text">HTML Elements Reference — Week 3 Lecture<br/>Informatics College Pokhara — Java Programming By Sandesh Hamal</p>
+
+  </body>
+</html>
