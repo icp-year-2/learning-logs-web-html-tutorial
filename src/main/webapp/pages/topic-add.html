@@ -89,10 +89,36 @@
        Multiple <link> tags load CSS files in parallel (faster).
        ============================================================ -->
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Log</title>
+    <link rel="stylesheet" href="../static/css/main.css" />
+    <link rel="stylesheet" href="../static/css/topic-add.css" />
   </head>
 
   <body>
     <div class="page">
+
+      <header class="header">
+        <div class="logo">
+          <a href="#" style="text-decoration: none">
+            <img src="../static/images/book.png" alt="LL" />
+          </a>
+          <h3>Learning Log</h3>
+        </div>
+        <div class="usersession">
+          <h3>Username</h3>
+          <a href="#" class="logout">Logout</a>
+        </div>
+      </header>
+
+      <nav class="navbar">
+        <ul>
+          <li><a href="#">&lt; BACK</a></li>
+          <li><p>Add/Edit Topic</p></li>
+          <li></li>
+        </ul>
+      </nav>
 
       <!-- ============================================================
            TODO 13: Build the Form Content (+25 XP)
@@ -131,7 +157,23 @@
 
            🏆 Badge: Form Builder — earned when TODOs 12-13 are complete!
            ============================================================ -->
+      <main class="content">
+        <div class="topicContainer">
+          <form action="">
+            <div class="topicItem">
+              <label for="">Topic: </label>
+              <input type="text" placeholder="Topic Name" name="topic" />
+            </div>
+            <div class="submit">
+              <button type="submit">Save</button>
+            </div>
+          </form>
+        </div>
+      </main>
 
+      <footer class="footer">
+        <h3>&copy; Learning Logs</h3>
+      </footer>
 
     </div>
   </body>
