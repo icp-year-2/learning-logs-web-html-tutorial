@@ -1,0 +1,190 @@
+/*
+ * ╔══════════════════════════════════════════════════════╗
+ * ║     QUEST: Style the Topic List Page                  ║
+ * ║                                                      ║
+ * ║   Complete TODOs 14-15 below to earn 50 XP!           ║
+ * ╚══════════════════════════════════════════════════════╝
+ *
+ * This stylesheet styles the topic list page.
+ * It IMPORTS main.css to reuse the base layout (header, navbar, footer).
+ * You only need to style the NEW elements: search bar and topic items.
+ *
+ *   ┌──────────────────────────────────────┐
+ *   │  .header   (from main.css)          │
+ *   ├──────────────────────────────────────┤
+ *   │  .navbar   (from main.css)          │
+ *   ├──────────────────────────────────────┤
+ *   │  .search   [label] [input] [button] │ ← NEW
+ *   │  .topicContainer                    │ ← NEW
+ *   │    .topicItem                       │ ← NEW
+ *   │      [topic link] [Edit] [Delete]   │
+ *   ├──────────────────────────────────────┤
+ *   │  .footer   (from main.css)          │
+ *   └──────────────────────────────────────┘
+ *
+ * Wireframe: See wireframes/topic-list.png
+ */
+
+
+/* ============================================================
+   TODO 14: Import Main CSS + Style Search Bar (+20 XP)
+   ============================================================
+   Add these rule blocks:
+
+   1. @import — load the base layout styles:
+
+        @import url("main.css");
+
+      WHY: @import pulls in ALL rules from main.css (variables,
+           reset, header, navbar, footer). You don't need to
+           rewrite them! This is CSS reuse in action.
+
+   2. .content — override the base content style for this page:
+
+        .content {
+            flex: 1;
+            padding: 10px;
+            max-width: 100%;
+            display: flex;
+            align-self: center;
+            flex-direction: column;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+      WHY: box-sizing: border-box prevents horizontal scrollbars.
+           Without it, width: 100% + padding = MORE than 100%
+           (the CSS Box Model trap — see reference/css-properties.html Section 2).
+
+   3. .search — center the search bar:
+
+        .search {
+            text-align: center;
+        }
+
+   4. .search input — style the search text field:
+
+        .search input {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--color-border-light);
+            width: 200px;
+        }
+
+   5. .search button — style the search button:
+
+        .search button {
+            padding: 8px 14px;
+            border-radius: 6px;
+            border: 1px solid var(--color-button-border);
+            background: transparent;
+            cursor: pointer;
+        }
+
+   6. .search button:hover — dark fill on hover:
+
+        .search button:hover {
+            background-color: var(--color-button-hover-bg);
+            color: var(--color-text-light);
+        }
+
+   🏆 Badge: Importer — earned when this TODO is complete!
+   ============================================================ */
+
+
+/* ============================================================
+   TODO 15: Style Topic Container + Items + Responsive (+30 XP)
+   ============================================================
+   Add these rule blocks for the topic list:
+
+   1. .topicContainer — bordered box, centered:
+
+        .topicContainer {
+            border: 2px solid var(--color-border-dark);
+            margin: 15px auto;
+            padding: 5px 10px;
+            display: flex;
+            flex-direction: column;
+            min-width: 40%;
+            min-height: 50%;
+        }
+
+   2. .topicItem — each topic row as a flex row:
+
+        .topicItem {
+            display: flex;
+            gap: 10px;
+            margin: 2px 0;
+            padding: 5px;
+            border: 2px solid var(--color-border-dark);
+        }
+
+   3. .topicItem .topic — the topic name link:
+
+        .topicItem .topic {
+            text-decoration: none;
+            padding: 5px 0px 0px 0px;
+            flex: 1;
+            overflow: hidden;
+        }
+
+   4. .topicItem .topic:hover — underline on hover:
+
+        .topicItem .topic:hover {
+            text-decoration: underline;
+            color: var(--color-text-dark);
+        }
+
+   5. .topicItem .edit — the edit button:
+
+        .topicItem .edit {
+            text-decoration: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: 1px solid var(--color-button-border);
+            color: var(--color-text-dark);
+        }
+
+   6. .topicItem .edit:hover — dark fill on hover:
+
+        .topicItem .edit:hover {
+            background-color: var(--color-button-hover-bg);
+            color: var(--color-text-light);
+        }
+
+   7. .topicItem .submit — the delete button:
+
+        .topicItem .submit {
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 16px;
+            border: 1px solid var(--color-button-border);
+            color: var(--color-text-dark);
+        }
+
+   8. .topicItem .submit:hover — RED background on hover:
+
+        .topicItem .submit:hover {
+            background-color: var(--color-button-delete);
+            color: var(--color-text-light);
+        }
+
+      WHY: The delete button turns RED on hover as a warning —
+           this is a common UX pattern for destructive actions.
+
+   9. @media — responsive layout for small screens:
+
+        @media (max-width: 700px) {
+            .topicItem {
+                flex-wrap: wrap;
+            }
+            .topicItem .topic {
+                flex: 100%;
+            }
+        }
+
+      WHY: flex: 100% with flex-wrap makes the topic name take
+           the full width, pushing Edit/Delete buttons to a new
+           row on mobile. Try resizing your browser to see it!
+
+   ============================================================ */

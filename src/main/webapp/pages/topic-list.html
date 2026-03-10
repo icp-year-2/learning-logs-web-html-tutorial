@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--
+    ╔══════════════════════════════════════════════════════╗
+    ║     QUEST: Build the Topic List Page                 ║
+    ║                                                      ║
+    ║   Complete TODOs 10-11 below to earn 75 XP!          ║
+    ╚══════════════════════════════════════════════════════╝
+
+    This page displays all topics with search, edit, and delete.
+    It REUSES the main layout (header, navbar, footer) you already
+    built — but the content area is different.
+
+      ┌──────────────────────────────────────┐
+      │  HEADER  (same as main.html)         │
+      ├──────────────────────────────────────┤
+      │  NAVBAR  ( | Topic Lists | +New)     │
+      ├──────────────────────────────────────┤
+      │  [Search: __________ ] [SEARCH]      │
+      │  ┌────────────────────────────────┐  │
+      │  │ 1. Python Course  [Edit][Delete]│  │
+      │  └────────────────────────────────┘  │
+      ├──────────────────────────────────────┤
+      │  FOOTER  (same as main.html)         │
+      └──────────────────────────────────────┘
+
+    Wireframe: See wireframes/topic-list.png
+  -->
+
+  <!-- ============================================================
+       TODO 10: Build the Page Structure (+25 XP)
+       ============================================================
+       You already know this pattern from main.html! Build:
+
+       1. <head> with:
+          - <meta charset="UTF-8" />
+          - <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          - <title>Learning Log</title>
+          - <link rel="stylesheet" href="../static/css/topic-list.css" />
+            (NOTE: topic-list.css uses @import to load main.css —
+             so you only need ONE link tag here!)
+
+       2. Inside <div class="page">, add the SAME header as main.html:
+          - <header class="header"> with logo div and usersession div
+
+       3. Navbar — same structure, DIFFERENT text:
+          - First <li>: EMPTY (no back link on the list page)
+          - Second <li>: <p>Topic Lists</p>
+          - Third <li>: <a href="#">+New Topic</a>
+
+       4. Footer (same as main.html):
+          - <footer class="footer"><h3>&copy; Learning Logs</h3></footer>
+
+       The complete structure:
+
+         <head>
+           <meta charset="UTF-8" />
+           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+           <title>Learning Log</title>
+           <link rel="stylesheet" href="../static/css/topic-list.css" />
+         </head>
+
+         (inside div.page, BEFORE the content area:)
+         <header class="header">
+           <div class="logo">
+             <a href="#" style="text-decoration: none">
+               <img src="../static/images/book.png" alt="LL" />
+             </a>
+             <h3>Learning Log</h3>
+           </div>
+           <div class="usersession">
+             <h3>Username</h3>
+             <a href="#" class="logout">Logout</a>
+           </div>
+         </header>
+
+         <nav class="navbar">
+           <ul>
+             <li></li>
+             <li><p>Topic Lists</p></li>
+             <li><a href="#">+New Topic</a></li>
+           </ul>
+         </nav>
+
+         (... content goes here — TODO 11 ...)
+
+         <footer class="footer">
+           <h3>&copy; Learning Logs</h3>
+         </footer>
+       ============================================================ -->
+  <head>
+  </head>
+
+  <body>
+    <div class="page">
+
+      <!-- ============================================================
+           TODO 11: Build the Content — Search + Topic Items (+50 XP)
+           ============================================================
+           Inside <main class="content">, build TWO sections:
+
+           1. Search bar (class="search"):
+              - A <form> containing:
+                - <label for="search">Topic: </label>
+                - <input type="text" name="search" placeholder="Search..." />
+                - <button type="submit">SEARCH</button>
+
+           2. Topic container (class="topicContainer"):
+              - A <ul> containing ONE <li class="topicItem"> with:
+                a) Topic link:
+                   <a class="topic" href="#">1. Python Course</a>
+                b) Edit link:
+                   <a class="edit" href="#">Edit</a>
+                c) Delete form (uses POST method with hidden inputs):
+                   <form action="topic" method="post">
+                     <input type="hidden" name="action" value="delete" />
+                     <input type="hidden" name="topicid" value="topic.id" />
+                     <button class="submit" type="submit"
+                       onclick="return confirm('Are you sure you want to delete?');">
+                       Delete
+                     </button>
+                   </form>
+
+           NEW CONCEPTS:
+           - <input type="hidden"> sends data without showing it to the user
+           - onclick="return confirm(...)" shows a Yes/No popup before deleting
+           - method="post" sends data securely (not in the URL)
+           - The edit link uses GET (just navigates), delete uses POST (modifies data)
+
+           The complete content structure:
+
+             <main class="content">
+               <div class="search">
+                 <form action="">
+                   <label for="search">Topic: </label>
+                   <input type="text" name="search" placeholder="Search..." />
+                   <button type="submit">SEARCH</button>
+                 </form>
+               </div>
+               <div class="topicContainer">
+                 <ul>
+                   <li class="topicItem">
+                     <a class="topic" href="#">1. Python Course</a>
+                     <a class="edit" href="#">Edit</a>
+                     <form action="topic" method="post">
+                       <input type="hidden" name="action" value="delete" />
+                       <input type="hidden" name="topicid" value="topic.id" />
+                       <button class="submit" type="submit"
+                         onclick="return confirm('Are you sure you want to delete?');">
+                         Delete
+                       </button>
+                     </form>
+                   </li>
+                 </ul>
+               </div>
+             </main>
+
+           🏆 Badge: Lister — earned when TODOs 10-11 are complete!
+           ============================================================ -->
+
+
+    </div>
+  </body>
+</html>

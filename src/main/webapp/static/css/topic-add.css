@@ -1,0 +1,141 @@
+/*
+ * ╔══════════════════════════════════════════════════════╗
+ * ║     QUEST: Style the Add/Edit Topic Page              ║
+ * ║                                                      ║
+ * ║   Complete TODOs 16-17 below to earn 25 XP!           ║
+ * ╚══════════════════════════════════════════════════════╝
+ *
+ * This stylesheet styles the add/edit topic form page.
+ * Unlike topic-list.css (which uses @import), this file is linked
+ * ALONGSIDE main.css in the HTML — two <link> tags in the <head>.
+ *
+ * CSS loads in order: main.css first, then topic-add.css.
+ * Rules here OVERRIDE matching rules from main.css
+ * (because they come later — CSS "cascade" in action!).
+ *
+ *   ┌──────────────────────────────────────┐
+ *   │  .header   (from main.css)          │
+ *   ├──────────────────────────────────────┤
+ *   │  .navbar   (from main.css)          │
+ *   ├──────────────────────────────────────┤
+ *   │  .topicContainer                    │ ← NEW
+ *   │    .topicItem [Label] [Input____]   │ ← NEW
+ *   │              [Save]                 │ ← NEW
+ *   ├──────────────────────────────────────┤
+ *   │  .footer   (from main.css)          │
+ *   └──────────────────────────────────────┘
+ *
+ * Wireframe: See wireframes/topic-add.png
+ */
+
+
+/* ============================================================
+   TODO 16: Style the Form Layout (+15 XP)
+   ============================================================
+   Add these rule blocks:
+
+   1. .content — override base content for centered form layout:
+
+        .content {
+            flex: 1;
+            padding: 10px;
+            max-width: 100%;
+            display: flex;
+            align-self: center;
+            flex-direction: column;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+   2. .topicContainer — bordered form area:
+
+        .topicContainer {
+            border: 1px solid var(--color-border-light);
+            margin: 15px auto;
+            padding: 12px 45px;
+            display: flex;
+            flex-direction: column;
+            min-width: 40%;
+            min-height: 50%;
+        }
+
+   3. .topicItem — flex row for label + input:
+
+        .topicItem {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+            padding: 5px;
+        }
+
+   4. .topicItem label — padding to align with input:
+
+        .topicItem label {
+            padding: 15px 0px 0px 0px;
+        }
+
+   5. .topicItem input — large text field that fills space:
+
+        .topicItem input {
+            font-size: large;
+            padding: 5px;
+            flex: 1;
+        }
+
+      WHY: flex: 1 on the input makes it grow to fill all
+           remaining space after the label. The label stays
+           fixed width, the input stretches.
+
+   6. .submit — center the save button:
+
+        .submit {
+            text-align: center;
+        }
+
+   ============================================================ */
+
+
+/* ============================================================
+   TODO 17: Style the Submit Button + Responsive (+10 XP)
+   ============================================================
+   Add these rule blocks:
+
+   1. .submit button[type="submit"] — style the save button:
+
+        .submit button[type="submit"] {
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 16px;
+            border: 1px solid var(--color-button-border);
+            color: var(--color-text-dark);
+        }
+
+      NEW: button[type="submit"] is an ATTRIBUTE SELECTOR —
+           it targets only <button> elements that have
+           type="submit". More specific than just "button".
+           See reference/css-properties.html Section 1 (Selectors).
+
+   2. .submit button[type="submit"]:hover — dark fill on hover:
+
+        .submit button[type="submit"]:hover {
+            background-color: var(--color-button-hover-bg);
+            color: var(--color-text-light);
+        }
+
+   3. @media — responsive: hide label on small screens:
+
+        @media (max-width: 700px) {
+            .topicItem {
+                flex-wrap: wrap;
+            }
+            .topicItem label {
+                display: none;
+            }
+        }
+
+      WHY: On mobile, the label takes too much space. Hiding it
+           lets the input field use the full width. The placeholder
+           text ("Topic Name") still tells users what to type.
+
+   🏆 Badge: Form Stylist — earned when TODOs 16-17 are complete!
+   ============================================================ */

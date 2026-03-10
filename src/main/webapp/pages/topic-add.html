@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--
+    ╔══════════════════════════════════════════════════════╗
+    ║     QUEST: Build the Add/Edit Topic Page             ║
+    ║                                                      ║
+    ║   Complete TODOs 12-13 below to earn 50 XP!          ║
+    ╚══════════════════════════════════════════════════════╝
+
+    This page has a simple form for adding or editing a topic.
+    It shares the same header/navbar/footer layout.
+
+      ┌──────────────────────────────────────┐
+      │  HEADER  (same as main.html)         │
+      ├──────────────────────────────────────┤
+      │  NAVBAR  (< BACK | Add/Edit Topic |) │
+      ├──────────────────────────────────────┤
+      │  ┌────────────────────────────────┐  │
+      │  │ Topic: [________________]      │  │
+      │  │          [Save]                │  │
+      │  └────────────────────────────────┘  │
+      ├──────────────────────────────────────┤
+      │  FOOTER  (same as main.html)         │
+      └──────────────────────────────────────┘
+
+    Wireframe: See wireframes/topic-add.png
+  -->
+
+  <!-- ============================================================
+       TODO 12: Build the Page Structure (+25 XP)
+       ============================================================
+       Same pattern as before, but with TWO differences:
+
+       1. <head> links TWO stylesheets (not one!):
+          - <link rel="stylesheet" href="../static/css/main.css" />
+          - <link rel="stylesheet" href="../static/css/topic-add.css" />
+          (topic-list.css used @import to load main.css automatically.
+           Here we link BOTH files manually — two ways to reuse CSS!)
+
+       2. Navbar text is different:
+          - First <li>: <a href="#">&lt; BACK</a>   ← &lt; is the HTML entity for <
+          - Second <li>: <p>Add/Edit Topic</p>
+          - Third <li>: EMPTY (no action on this page)
+
+       The complete structure:
+
+         <head>
+           <meta charset="UTF-8" />
+           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+           <title>Learning Log</title>
+           <link rel="stylesheet" href="../static/css/main.css" />
+           <link rel="stylesheet" href="../static/css/topic-add.css" />
+         </head>
+
+         (inside div.page:)
+         <header class="header">
+           <div class="logo">
+             <a href="#" style="text-decoration: none">
+               <img src="../static/images/book.png" alt="LL" />
+             </a>
+             <h3>Learning Log</h3>
+           </div>
+           <div class="usersession">
+             <h3>Username</h3>
+             <a href="#" class="logout">Logout</a>
+           </div>
+         </header>
+
+         <nav class="navbar">
+           <ul>
+             <li><a href="#">&lt; BACK</a></li>
+             <li><p>Add/Edit Topic</p></li>
+             <li></li>
+           </ul>
+         </nav>
+
+         (... content goes here — TODO 13 ...)
+
+         <footer class="footer">
+           <h3>&copy; Learning Logs</h3>
+         </footer>
+
+       CSS REUSE — Two Approaches:
+       ┌─────────────────────────────────────────────────┐
+       │ topic-list.css: @import url("main.css");        │ ← CSS handles it
+       │ topic-add.html: <link> main.css + topic-add.css │ ← HTML handles it
+       └─────────────────────────────────────────────────┘
+       Both work! @import is cleaner but adds a network request.
+       Multiple <link> tags load CSS files in parallel (faster).
+       ============================================================ -->
+  <head>
+  </head>
+
+  <body>
+    <div class="page">
+
+      <!-- ============================================================
+           TODO 13: Build the Form Content (+25 XP)
+           ============================================================
+           Inside <main class="content">, build a form for adding a topic:
+
+           1. Topic container (class="topicContainer"):
+              - A <form action=""> containing:
+                a) Input row (class="topicItem"):
+                   - <label for="">Topic: </label>
+                   - <input type="text" placeholder="Topic Name" name="topic" />
+                b) Submit section (class="submit"):
+                   - <button type="submit">Save</button>
+
+           NEW CONCEPTS:
+           - <label> describes what the input is for (accessibility)
+           - name="topic" is the key sent to the server (Week 4)
+           - placeholder shows hint text inside the input
+           - <form action=""> will be filled in Week 4 with a servlet URL
+
+           The complete content structure:
+
+             <main class="content">
+               <div class="topicContainer">
+                 <form action="">
+                   <div class="topicItem">
+                     <label for="">Topic: </label>
+                     <input type="text" placeholder="Topic Name" name="topic" />
+                   </div>
+                   <div class="submit">
+                     <button type="submit">Save</button>
+                   </div>
+                 </form>
+               </div>
+             </main>
+
+           🏆 Badge: Form Builder — earned when TODOs 12-13 are complete!
+           ============================================================ -->
+
+
+    </div>
+  </body>
+</html>

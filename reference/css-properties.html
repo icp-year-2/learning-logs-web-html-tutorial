@@ -315,6 +315,25 @@
 /* Targets &lt;ul&gt; that is a DIRECT child of .navbar */</pre>
     </div>
 
+    <div class="card">
+      <h3>Attribute Selector <code>[attr="value"]</code></h3>
+      <p>Targets elements with a specific attribute value. Useful for form elements.</p>
+      <pre>button[type="submit"] {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid #333;
+}
+
+/* Targets only &lt;button type="submit"&gt;, not other buttons */
+
+input[type="text"] {
+    padding: 8px 12px;
+}
+
+/* Targets only &lt;input type="text"&gt;, not checkboxes or hidden inputs */</pre>
+      <div class="note">Attribute selectors are more specific than tag selectors. <code>button[type="submit"]</code> only matches submit buttons, while <code>button</code> matches ALL buttons.</div>
+    </div>
+
     <!-- ════════════════════════════════════════════════════════ -->
     <h2 id="box-model">2. Box Model <span>Every element is a box</span></h2>
 
