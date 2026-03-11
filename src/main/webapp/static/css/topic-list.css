@@ -6,7 +6,7 @@
  * ╚══════════════════════════════════════════════════════╝
  *
  * This stylesheet styles the topic list page.
- * It IMPORTS main.css to reuse the base layout (header, navbar, footer).
+ * main.css is linked in the HTML <head> for base layout (header, navbar, footer).
  * You only need to style the NEW elements: search bar and topic items.
  *
  *   ┌──────────────────────────────────────┐
@@ -27,19 +27,13 @@
 
 
 /* ============================================================
-   TODO 14: Import Main CSS + Style Search Bar (+20 XP)
+   TODO 14: Style Content Area + Search Bar (+20 XP)
    ============================================================
-   Add these rule blocks:
+   main.css is already linked in the HTML <head>, so all base
+   layout styles (header, navbar, footer) are available.
+   Add these FIVE rule blocks:
 
-   1. @import — load the base layout styles:
-
-        @import url("main.css");
-
-      WHY: @import pulls in ALL rules from main.css (variables,
-           reset, header, navbar, footer). You don't need to
-           rewrite them! This is CSS reuse in action.
-
-   2. .content — override the base content style for this page:
+   1. .content — override the base content style for this page:
 
         .content {
             flex: 1;
@@ -63,13 +57,13 @@
            Without it, width: 100% + padding = MORE than 100%
            (the CSS Box Model trap — see reference/css-properties.html Section 2).
 
-   3. .search — center the search bar:
+   2. .search — center the search bar:
 
         .search {
             text-align: center;
         }
 
-   4. .search input — style the search text field:
+   3. .search input — style the search text field:
 
         .search input {
             padding: 8px 12px;
@@ -78,7 +72,7 @@
             width: 200px;
         }
 
-   5. .search button — style the search button:
+   4. .search button — style the search button:
 
         .search button {
             padding: 8px 14px;
@@ -88,17 +82,15 @@
             cursor: pointer;
         }
 
-   6. .search button:hover — dark fill on hover:
+   5. .search button:hover — dark fill on hover:
 
         .search button:hover {
             background-color: var(--color-button-hover-bg);
             color: var(--color-text-light);
         }
 
-   🏆 Badge: Importer — earned when this TODO is complete!
+   🏆 Badge: Searcher — earned when this TODO is complete!
    ============================================================ */
-@import url("main.css");
-
 .content {
     flex: 1;
     padding: 10px;

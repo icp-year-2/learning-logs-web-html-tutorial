@@ -31,11 +31,11 @@
        ============================================================
        Same pattern as before, but with TWO differences:
 
-       1. <head> links TWO stylesheets (not one!):
+       1. <head> links TWO stylesheets:
           - <link rel="stylesheet" href="../static/css/main.css" />
           - <link rel="stylesheet" href="../static/css/topic-add.css" />
-          (topic-list.css used @import to load main.css automatically.
-           Here we link BOTH files manually — two ways to reuse CSS!)
+          (main.css for base layout, topic-add.css for page-specific
+           styles — same pattern as topic-list.html!)
 
        2. Navbar text is different:
           - First <li>: <a href="#">&lt; BACK</a>   ← &lt; is the HTML entity for <
@@ -80,13 +80,6 @@
            <h3>&copy; Learning Logs</h3>
          </footer>
 
-       CSS REUSE — Two Approaches:
-       ┌─────────────────────────────────────────────────┐
-       │ topic-list.css: @import url("main.css");        │ ← CSS handles it
-       │ topic-add.html: <link> main.css + topic-add.css │ ← HTML handles it
-       └─────────────────────────────────────────────────┘
-       Both work! @import is cleaner but adds a network request.
-       Multiple <link> tags load CSS files in parallel (faster).
        ============================================================ -->
   <head>
     <meta charset="UTF-8" />

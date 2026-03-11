@@ -6,10 +6,7 @@
  * ╚══════════════════════════════════════════════════════╝
  *
  * This stylesheet styles the add/edit topic form page.
- * Unlike topic-list.css (which uses @import), this file is linked
- * ALONGSIDE main.css in the HTML — two <link> tags in the <head>.
- *
- * CSS loads in order: main.css first, then topic-add.css.
+ * main.css is linked in the HTML <head> for base layout (header, navbar, footer).
  * Rules here OVERRIDE matching rules from main.css
  * (because they come later — CSS "cascade" in action!).
  *
