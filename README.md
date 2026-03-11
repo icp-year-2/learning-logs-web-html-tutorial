@@ -51,7 +51,7 @@ flowchart LR
 | **CSS Variables** | Reusable color values defined once in `:root` | `main.css` |
 | **Responsive Design** | `@media` queries — adapt layout for mobile screens | `main.css` |
 | **HTML Forms** | `<form>`, `<input>`, `<label>`, `<button>`, hidden inputs | `topic-list.html`, `topic-add.html` |
-| **CSS @import** | Reuse stylesheets by importing from another CSS file | `topic-list.css` |
+| **Multiple `<link>` Tags** | Reuse stylesheets by linking multiple CSS files in HTML | `topic-list.html`, `topic-add.html` |
 | **Attribute Selectors** | Target elements by attribute: `button[type="submit"]` | `topic-add.css` |
 
 ---
@@ -242,13 +242,13 @@ Style the layout using flexbox, CSS variables, and responsive design.
 
 ### Task 3: Topic List Page — `pages/topic-list.html` + `static/css/topic-list.css` (125 XP)
 
-Build the topic list page with search and CRUD buttons. Introduces forms, hidden inputs, and CSS `@import`.
+Build the topic list page with search and CRUD buttons. Introduces forms, hidden inputs, and CSS reuse via multiple `<link>` tags.
 
 | TODO | Task | XP | File |
 |------|------|----|------|
 | 10 | Page structure — head, header, navbar ("Topic Lists"), footer | 25 XP | `topic-list.html` |
 | 11 | Content — search form + topic container with edit/delete | 50 XP | `topic-list.html` |
-| 14 | `@import main.css` + search bar styles + box-sizing | 20 XP | `topic-list.css` |
+| 14 | Content area + search bar styles + box-sizing | 20 XP | `topic-list.css` |
 | 15 | Topic container + items + action buttons + responsive | 30 XP | `topic-list.css` |
 
 > **Start here after completing Tasks 1-2!** The topic list page reuses the same header/navbar/footer pattern.
@@ -279,7 +279,7 @@ Build the add/edit topic form. Introduces multiple stylesheet linking and attrib
 | 🎨 | **Stylist** | Style the main page with flexbox layout (TODO 5-8) |
 | 📱 | **Responsive** | Add mobile responsive design (TODO 9) |
 | 📋 | **Lister** | Build the topic list page with search and CRUD (TODO 10-11) |
-| 📥 | **Importer** | Use CSS @import to reuse main.css styles (TODO 14) |
+| 🔍 | **Searcher** | Style the content area and search bar (TODO 14) |
 | 📝 | **Form Builder** | Build the add topic form page (TODO 12-13) |
 | 🎯 | **Form Stylist** | Style the form with attribute selectors (TODO 16-17) |
 
@@ -385,7 +385,7 @@ Open `pages/topic-list.html` (TODOs 10-11) and `static/css/topic-list.css` (TODO
 
 ### Step 5: Build the Add Topic Page (TODO 12-13, 16-17)
 
-Open `pages/topic-add.html` (TODOs 12-13) and `static/css/topic-add.css` (TODOs 16-17). This page introduces forms and a different approach to CSS reuse (multiple `<link>` tags).
+Open `pages/topic-add.html` (TODOs 12-13) and `static/css/topic-add.css` (TODOs 16-17). This page introduces forms and attribute selectors.
 
 ### Step 6: Preview All Pages
 
@@ -510,16 +510,20 @@ Make sure:
 
 ### Topic List Page Unstyled?
 
-Check that `topic-list.css` starts with `@import url("main.css");` — this loads all the base styles (variables, header, navbar, footer). Without the @import, the page has no layout.
+Check that your `<head>` links **both** CSS files:
+```html
+<link rel="stylesheet" href="../static/css/main.css" />
+<link rel="stylesheet" href="../static/css/topic-list.css" />
+```
+Without main.css, the page has no base layout styles (variables, header, navbar, footer).
 
 ### Topic Add Page Unstyled?
 
-Check that the `<head>` links **both** CSS files:
+Same pattern — check that the `<head>` links **both** CSS files:
 ```html
 <link rel="stylesheet" href="../static/css/main.css" />
 <link rel="stylesheet" href="../static/css/topic-add.css" />
 ```
-Unlike topic-list.css (which uses @import), topic-add.html links both files manually.
 
 ### Terminal App Still Works?
 
@@ -571,7 +575,7 @@ mvn compile exec:java
 | `text-decoration` | Underline control | `none` (remove underline) |
 | `opacity` | Transparency | `0.7` (30% transparent) |
 | `@media` | Responsive breakpoint | `@media (max-width: 700px)` |
-| `@import` | Import another stylesheet | `@import url("main.css");` |
+| `<link>` (multiple) | Link multiple stylesheets | `<link href="main.css">` + `<link href="page.css">` |
 | `box-sizing` | Include padding in width | `border-box` (prevents scrollbar) |
 | `flex-wrap` | Wrap items to next line | `wrap` (for responsive layouts) |
 | `cursor` | Mouse cursor style | `pointer` (clickable hand) |
@@ -606,8 +610,8 @@ Check off each task as you complete it:
 - [ ] **TODO 10** — Page Structure (25 XP)
 - [ ] **TODO 11** — Search + Topic Items (50 XP)
 - [ ] Achievement Unlocked: **📋 Lister**
-- [ ] **TODO 14** — @import + Search Styles (20 XP)
-- [ ] Achievement Unlocked: **📥 Importer**
+- [ ] **TODO 14** — Content Area + Search Styles (20 XP)
+- [ ] Achievement Unlocked: **🔍 Searcher**
 - [ ] **TODO 15** — Topic Container + Items + Responsive (30 XP)
 
 ### Task 4: Add Topic Page
